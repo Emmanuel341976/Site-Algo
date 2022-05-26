@@ -45,11 +45,28 @@
 				<h3>PSEUDO-CODE</h3>
 
 				<textarea class="txt_pseudocode">
-	Variables : 
+
+	Variables : iUserNumber=0, Tab = new Array(), Tab2 = new Array(2), i = 0, j=1, icompt=0;
 		
 	Début
+
+	Ecrire : Entrez le nombre de saisies souhaitées
+	Lire : Tab
 	
-	
+	Tab2 <- [0, Tab[0]]
+
+	icomt <- iUserNumber -1
+
+	POUR j < icompt
+
+			SI Tab2[1] < Tab[j]
+				ALORS
+					Tab2[1] <- Tab[j]
+					Tab2[0] <- j
+	j suivant
+
+	Ecrire  "Le nombre le plus grand est : " + Tab2[1] + ".</br>" + "Il est à l'index " + Tab2[0] + " du tableau."
+
 	Fin
 
 
@@ -73,7 +90,55 @@
 				<div id="div_jsform">
 					<textarea class="tarea_green">
 
+	function generate_field_exo_13()
+	{
+		let page = "", i = 0;
 	
+		nb = parseInt(document.getElementById("iUserNumber").value);
+	
+		for (i; i < nb; i++) {
+			page +=
+				"<p>" +
+				" Nombre " +
+				(i+1) +
+				'<input type ="number" name="nombre' +
+				i +
+				'"id="nombre' +
+				i +
+				'" value="' +
+				'"></p>';
+		}
+	
+		document.getElementById("input").innerHTML = page;
+	}
+	
+	
+	function Exo_6_13_jsform()
+	{
+		let iUserNumber=0, Tab = new Array(), Tab2 = new Array(2), i = 0, j=1, iValue, icompt=0;    
+	
+	iUserNumber = document.getElementById("iUserNumber").value;
+	
+	for (i; i < iUserNumber; i++)
+		{
+			iValue = "nombre" + i;
+			Tab[i] = parseInt(document.getElementById(iValue).value);
+		}
+							
+	Tab2 = [0, Tab[0]];
+	icompt = iUserNumber -1;
+												
+	
+	for (j; j < icompt; j++)
+			{
+				if (Tab2[1] < Tab[j])
+					{
+						Tab2[1] = Tab[(j)];
+						Tab2[0] = parseInt(j);
+					}
+			}
+		document.getElementById("sp_resultat_code").innerHTML = "Le nombre le plus grand est : " + Tab2[1] + ".</br>" + "Il est à l'index " + Tab2[0] + " du tableau.";
+	}	
 	
 					</textarea>
 				</div>
@@ -82,7 +147,32 @@
 
 					<textarea class="tarea_pink">
 
-
+	function Exo_6_13_jquery()
+	{
+		var iUserNumber=0, Tab = new Array(), Tab2 = new Array(2), i = 0, j=1, iValue, icompt=0;    
+	
+	iUserNumber = document.getElementById("iUserNumber").value;
+	
+	for (i; i < iUserNumber; i++)
+		{
+			iValue = "#nombre" + i;
+			Tab[i] = parseInt($(iValue).val());
+		}
+							
+	Tab2 = [0, Tab[0]];
+	icompt = iUserNumber -1;
+												
+	
+	for (j; j < icompt; j++)
+			{
+				if (Tab2[1] < Tab[j])
+					{
+						Tab2[1] = Tab[(j)];
+						Tab2[0] = parseInt(j);
+					}
+			}
+		$("#sp_resultat_code").html("Le nombre le plus grand est : " + Tab2[1] + ".</br>" + "Il est à l'index " + Tab2[0] + " du tableau.");
+	}
 	
 					</textarea>
 				</div>
@@ -90,7 +180,41 @@
 				<div id="div_php">
 					<textarea class="tarea_black">
 
+	$sMessage= "";
+	$tab = array();
+	$tab2 = array(); 
+	$i = 0;
+	$j = 0;
+	$icompt = 0;
 	
+	if (isset($_POST["btn_php"]))
+	{
+		$iUserNumber = $_POST["iUserNumber"];
+
+		for ($i; $i < $iUserNumber; $i++)
+		{
+			
+			$Tab[$i] = $_POST["nombre" . $i];
+		}
+
+		$Tab2 = [0, $Tab[0]];
+		$icompt = $iUserNumber -1;
+
+
+		for ($j; $j < $icompt; $j++)
+		{
+			if ($Tab2[1] < $Tab[$j])
+				{
+					$Tab2[1] = $Tab[($j)];
+					$Tab2[0] = $j;
+				}
+		}
+		
+		$sMessage = "le nombres le plus grand est : " . $Tab2[1] . ".</br>" . "Il est à l'index " . $Tab2[0] . " du tableau.";
+		
+	}
+
+	require "exo_13.html";
 	
 					</textarea>
 					
