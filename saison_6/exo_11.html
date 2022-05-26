@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 6 - Exo 11</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison6.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 6 - Exercice 11</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo;
+					Toujours à partir de deux tableaux précédemment saisis, écrivez un algorithme qui calcule le « Toon » des deux tableaux.</br>
+					Pour calculer le « Toon », il faut multiplier chaque élément du tableau 1 par chaque élément du tableau 2, et additionner le tout.</br></br>
+					Par exemple si l'on a :</br></br>
+					Tableau 1 : 4, 8, 7, 12</br></br>
+					Tableau 2 : 3 6</br></br>
+					Le « Toon » sera :</br></br>
+					3 * 4 + 3 * 8 + 3 * 7 + 3 * 12 + 6 * 4 + 6 * 8 + 6 * 7 + 6 * 12 = 279
+					 &raquo;
+				</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+				Variables :Tab1, Tab2, Toon, i = 0, j = 0;
+
+				Tab1 = [4, 8, 7, 12]
+				Tab2 = [3, 6]
+					
+				Début
+				
+				POUR i <- 2, i++
+					POUR j <- 4, j++
+						Toon = Toon + Tab1[j] * Tab2[i]
+					j Suivant
+				i Suivant
+
+				Ecrire Toon
+
+				Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_6_11_jsform()
+	{
+		let Tab1 = [4, 8, 7, 12], Tab2 = [3, 6], Toon = 0, i = 0, j = 0;
+	
+		for (i; i < 2; i++)
+			{
+				for (j; j < 4; j++)
+					{
+						Toon = Toon + Tab1[j] * Tab2[i];
+					}
+				j = 0;
+			}
+		document.getElementById("sp_resultat_code").innerHTML = Toon;
+	}
+	
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+					<textarea class="tarea_pink">
+
+	function Exo_6_11_jquery()
+	{
+		var Tab1 = [4, 8, 7, 12], Tab2 = [3, 6], Toon = 0, i = 0, j = 0;
+	
+		for (i; i < 2; i++)
+			{
+				for (j; j < 4; j++)
+					{
+						Toon = Toon + Tab1[j] * Tab2[i];
+					}
+				j = 0;
+			}
+		$("s#p_resultat_code").html(Toon);
+	}
+	
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+						
+	$sMessage= "";
+	$Tab1 = array(4,8,7,12);
+	$Tab2 = array(3,6);
+	$Toon = 0;
+	$j = 0; 
+	$i = 0;
+	
+	if (isset($_POST["btn_php"]))
+	{
+		
+		for ($i; $i < 2; $i++)
+		{
+			for ($j; $j < 4; $j++)
+				{
+					$Toon = $Toon + $Tab1[$j] * $Tab2[$i];
+				}
+			$j = 0;
+		}
+		
+		$sMessage = $Toon;
+		
+	}
+
+	require "exo_11.html";
+	
+	
+					</textarea>
+					
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					
+					
+					<form action="exo_11.php" method="POST" name="formPHP">
+						<!-- <p>Saisie du nombre de valeurs souhaitées.</p>
+						<p><input type="number" name="iUserNumber" id="iUserNumber"></p>
+						<p>
+							<button class="btn_grey" onClick="generate_field_exo_10(); return false;">Générer les valeurs.</button>
+							
+							
+						</p> -->
+						<!-- <p>Tableau 1</p> -->
+						<!-- <div id="input0"> </div> -->
+						<!-- <p>Tableau 2</p> -->
+						<!-- <div id="input1"> </div> -->
+						<!-- <div id="iUserNumber"> </div> -->
+						<!-- <div id="Payement"> </div> -->
+						
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_6_11_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_6_11_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span>
+						<?php
+						
+						echo $sMessage;
+						 
+						?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

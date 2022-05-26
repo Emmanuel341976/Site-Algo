@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 6 - Exo 9</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison6.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 6 - Exercice 9</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Ecrivez un algorithme calculant la somme des valeurs d’un tableau (on suppose que le tableau a été préalablement saisi). &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+				
+		Variables tab() en numerique, i en numerique, iTabIndexSum en numérique
+
+			Lire iUserNumber
+
+			POUR i <- i < iUserNumber
+
+					tab(i) <- -Lire nombre(i) 
+					
+					iTabIndexSum <- iTabIndexSum + tab(i)
+
+			i Suivant
+
+			Ecrire iTabIndexSum
+
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function generate_field_exo_9()
+	{
+		let page = "", i = 0;
+
+		nb = parseInt(document.getElementById("iUserNumber").value);
+
+		for (i; i < nb; i++) {
+			page +=
+				"<p>" +
+				" Nombre " +
+				(i+1) +
+				'<input type ="number" name="nombre' +
+				i +
+				'"id="nombre' +
+				i +
+				'" value="' +
+				Math.floor(Math.random() * 100) +
+				'"></p>';
+		}
+
+		document.getElementById("input").innerHTML = page;
+	}
+
+
+	function Exo_6_9_jsform()
+	{
+
+	let iUserNumber=0, Tab = new Array(), i = 0, iTabIndexSum = 0, iValue;    
+
+	iUserNumber = document.getElementById("iUserNumber").value;
+
+	for (i; i < iUserNumber; i++)
+		{
+			iValue = "nombre" + i;
+			Tab[i] = document.getElementById(iValue).value;
+			iTabIndexSum = parseInt(iTabIndexSum) + parseInt(Tab[i]);
+		}
+
+		document.getElementById("sp_resultat_code").innerHTML = "La somme des index du tableau est : " + iTabIndexSum;
+	}
+
+	
+	
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+					<textarea class="tarea_pink">
+
+	function Exo_6_9_jquery()
+	{
+	
+		var iUserNumber=0, Tab = new Array(), i = 0, iTabIndexSum = 0, iValue;    
+	
+		iUserNumber = $("#iUserNumber").val();
+	
+		for (i; i < iUserNumber; i++)
+			{
+				iValue = "#nombre" + i;
+				Tab[i] = $(iValue).val();
+				iTabIndexSum = parseInt(iTabIndexSum) + parseInt(Tab[i]);
+			}
+	
+			$("#sp_resultat_code").html("La somme des index du tableau est : " + iTabIndexSum);
+	}
+	
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+	$sMessage= "";
+	$tab = array(); 
+	$i = 0;
+	$Value = 0;
+	$iTabIndexSum = 0;
+	
+	if (isset($_POST["btn_php"]))
+	{
+		$iUserNumber = $_POST["iUserNumber"];
+		for ($i; $i < $iUserNumber; $i++)
+			{
+				$Value = $_POST["nombre". $i];
+				$tab [$i] = $Value;
+				
+				$iTabIndexSum = $iTabIndexSum + $tab[$i];
+
+			}
+		
+		$sMessage =  "La somme des index du tableau est : " . $iTabIndexSum;
+		
+	}
+
+	require "exo_9.html";
+	
+					</textarea>
+					
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					
+					
+					<form action="exo_9.php" method="POST" name="formPHP">
+						<p>Saisie du nombre de valeurs souhaitées.</p>
+						<p><input type="number" name="iUserNumber" id="iUserNumber"></p>
+						<p>
+							<button class="btn_grey" onClick="generate_field_exo_9(); return false;">Générer les valeurs.</button>
+							
+							
+						</p>
+						<div id="input"> </div>
+						<div id="iUserNumber"> </div>
+						<!-- <div id="Payement"> </div> -->
+						
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_6_9_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_6_9_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span>
+						<?php
+						echo ($sMessage)
+						?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

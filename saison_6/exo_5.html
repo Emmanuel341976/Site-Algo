@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 6 - Exo 5</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison6.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 6 - Exercice 5</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo;
+					Que produit l’algorithme suivant ?</br></br>
+						Tableau N(6) en Entier</br>
+						Variables i, k en Entier</br>
+					Début</br>
+					N(0) ← 1</br>
+					Pour k ← 1 à 6</br>
+					N(k) ← N(k-1) + 2</br>
+					k Suivant</br>
+					Pour i ← 0 à 6</br>
+					Ecrire N(i)</br>
+					i suivant</br>
+					Fin</br></br>
+					Peut-on simplifier cet algorithme avec le même résultat ?
+					
+					
+					
+				&raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+
+Création d'une variable tableau (Nb) avec 6 éléments.
+
+L'élément 0 du tableau prend la valeur 1.
+
+Une boucle donne aux élements du tableau ( partir de l'élément 1 ), la valeur de l'élément précédent + 2.
+
+Nb vaut : Nb (1, 3, 5, 7, 9, 11).
+
+Boucle pour afficher les 6 valeurs du tableau de l'indice 0 à 6.
+
+Chacune des valeur des éléments du tableau sont affichées indépendament (ce n'est pas la variable qui est affichée).
+
+On peut afficher la variable et non pas ses éléments après l'avoir remplie dans la boucle cela suprime une boucle.
+
+
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	
+	
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+					<textarea class="tarea_pink">
+
+	
+	}
+	
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+	
+	
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<!-- <p>
+						<button class="btn_grey" onClick="Saisie_prompt_exo_3(); return false;">Saisie notes</button>
+						
+						
+					</p> -->
+					
+					<form action="exo_5.php" method="POST" name="formPHP">
+						<!-- <p>Saisissez les 9 notes.</p> -->
+						
+						<!-- <div id="input"> </div> -->
+						<!-- <div id="Total"> </div>
+						<div id="Payement"> </div> -->
+						
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_6_5_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_6_5_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span>
+						<?php
+						echo '<pre>';
+						print_r($sMessage);
+						echo '</pre>' 
+						?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>
