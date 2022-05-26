@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 2 - Exo 4</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison2.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 2 - Exercice 4</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Ecrire un algorithme utilisant des variables de type chaîne de caractères, et affichant quatre variantes
+					possibles de la célèbre « belle marquise, vos beaux yeux me font mourir d’amour ». On ne se soucie pas de
+					la ponctuation, ni des majuscules. &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+Début
+
+	Variables cCharacterString1 cCharacterString2 cCharacterString3 cCharacterString4 cCharacterString5 cSentence1 cSentence2 cSentence3 et cSentence4 caractères
+	Ecrire  : "Voici 4 varientes de la célèbre « belle marquise, vos beaux yeux me font mourir d’amour »"
+	cCharacterString1 ← "belle marquise"
+	cCharacterString2 ← "vos beaux yeux"
+	cCharacterString3 ← "me font mourir"
+	cCharacterString4 ← "d’amour"
+	cCharacterString5 ← " "
+	cSentence1 ← cCharacterString2 & cCharacterString5 & cCharacterString1 & cCharacterString5 & cCharacterString3 & cCharacterString5 & cCharacterString4
+	Ecrire : cSentence1
+	cSentence2 ← cCharacterString1 & cCharacterString5 & cCharacterString4 & cCharacterString5 & cCharacterString2 & cCharacterString5 & cCharacterString3
+	Ecrire : cSentence2
+	cSentence3 ← cCharacterString4 & cCharacterString5 & cCharacterString2 & cCharacterString5 & cCharacterString3 & cCharacterString5 & cCharacterString1
+	Ecrire : cSentence3
+	cSentence4 ← cCharacterString2 & cCharacterString5 & cCharacterString3 & cCharacterString5 & cCharacterString4 & cCharacterString5 & cCharacterString1
+	Ecrire : cSentence4
+
+Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<!-- <button class="btn_blue" onClick="showCode('div_jsprompt', 'btn_jsprompt')">CODE JavaScript VIA Prompt</button> -->
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				<div id="div_jsprompt">
+
+
+
+
+					<textarea class="tarea_blue">
+
+					</textarea>
+
+
+
+
+
+				</div>
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+					function Exo_2_4_jsform()
+
+		
+
+					{			
+					// Début
+					// Variables cCharacterString1 cCharacterString2 cCharacterString3 cCharacterString4 cCharacterString5 cSentence1 cSentence2 cSentence3 et cSentence4 caractères
+					let cCharacterString1, cCharacterString2, cCharacterString3, cCharacterString4, cCharacterString5, cSentence1, cSentence2, cSentence3,  cSentence4;
+
+					// 	Ecrire  : "Voici 4 varientes de la célèbre « belle marquise, vos beaux yeux me font mourir d’amour »"
+
+					// 	cCharacterString1 ← "belle marquise"
+					cCharacterString1 = "belle marquise";
+
+					// 	cCharacterString2 ← "vos beaux yeux"
+					cCharacterString2 = "vos beaux yeux";
+
+					// 	cCharacterString3 ← "me font mourir"
+					cCharacterString3 = "me font mourir";
+
+					// 	cCharacterString4 ← "d’amour"
+					cCharacterString4 = "d’amour";
+
+					// 	cCharacterString5 ← " "
+					cCharacterString5 = " ";
+
+					// 	cSentence1 ← cCharacterString2 & cCharacterString5 & cCharacterString1 & cCharacterString5 & cCharacterString3 & cCharacterString5 & cCharacterString4
+					cSentence1 = cCharacterString2 + cCharacterString5 + cCharacterString1 + cCharacterString5 + cCharacterString3 + cCharacterString5 + cCharacterString4;
+					
+
+					// 	cSentence2 ← cCharacterString1 & cCharacterString5 & cCharacterString4 & cCharacterString5 & cCharacterString2 & cCharacterString5 & cCharacterString3
+					cSentence2 = cCharacterString1 + cCharacterString5 + cCharacterString4 + cCharacterString5 + cCharacterString2 + cCharacterString5 + cCharacterString3;
+					
+
+					// 	cSentence3 ← cCharacterString4 & cCharacterString5 & cCharacterString2 & cCharacterString5 & cCharacterString3 & cCharacterString5 & cCharacterString1
+					cSentence3 = cCharacterString4 + cCharacterString5 + cCharacterString2 + cCharacterString5 + cCharacterString3 + cCharacterString5 + cCharacterString1;
+					
+
+					// 	cSentence4 ← cCharacterString2 & cCharacterString5 & cCharacterString3 & cCharacterString5 & cCharacterString4 & cCharacterString5 & cCharacterString1
+					cSentence4 = cCharacterString2 + cCharacterString5 + cCharacterString3 + cCharacterString5 + cCharacterString4 + cCharacterString5 + cCharacterString1;
+
+					document.getElementById("sp_resultat_code").innerHTML= cSentence1;
+					document.getElementById("sp_resultat_code2").innerHTML= cSentence2;
+					document.getElementById("sp_resultat_code3").innerHTML= cSentence3;
+					document.getElementById("sp_resultat_code4").innerHTML= cSentence4;
+					// 	Ecrire : cSentence1
+					// 	Ecrire : cSentence2
+					// 	Ecrire : cSentence3
+					// 	Ecrire : cSentence4
+					
+					// Fin
+
+					}
+
+
+
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+
+					
+					<textarea class="tarea_pink">
+
+						function Exo_2_4_jquery()
+		
+						{
+						// Début
+						// Variables cCharacterString1 cCharacterString2 cCharacterString3 cCharacterString4 cCharacterString5 cSentence1 cSentence2 cSentence3 et cSentence4 caractères
+						var cCharacterString1, cCharacterString2, cCharacterString3, cCharacterString4, cCharacterString5, cSentence1, cSentence2, cSentence3,  cSentence4;
+				
+						// 	Ecrire  : "Voici 4 varientes de la célèbre « belle marquise, vos beaux yeux me font mourir d’amour »"
+				
+						// 	cCharacterString1 ← "belle marquise"
+						cCharacterString1 = "belle marquise";
+				
+						// 	cCharacterString2 ← "vos beaux yeux"
+						cCharacterString2 = "vos beaux yeux";
+				
+						// 	cCharacterString3 ← "me font mourir"
+						cCharacterString3 = "me font mourir";
+				
+						// 	cCharacterString4 ← "d’amour"
+						cCharacterString4 = "d’amour";
+				
+						// 	cCharacterString5 ← " "
+						cCharacterString5 = " ";
+				
+						// 	cSentence1 ← cCharacterString2 & cCharacterString5 & cCharacterString1 & cCharacterString5 & cCharacterString3 & cCharacterString5 & cCharacterString4
+						cSentence1 = cCharacterString2 + cCharacterString5 + cCharacterString1 + cCharacterString5 + cCharacterString3 + cCharacterString5 + cCharacterString4;
+						
+				
+						// 	cSentence2 ← cCharacterString1 & cCharacterString5 & cCharacterString4 & cCharacterString5 & cCharacterString2 & cCharacterString5 & cCharacterString3
+						cSentence2 = cCharacterString1 + cCharacterString5 + cCharacterString4 + cCharacterString5 + cCharacterString2 + cCharacterString5 + cCharacterString3;
+						
+				
+						// 	cSentence3 ← cCharacterString4 & cCharacterString5 & cCharacterString2 & cCharacterString5 & cCharacterString3 & cCharacterString5 & cCharacterString1
+						cSentence3 = cCharacterString4 + cCharacterString5 + cCharacterString2 + cCharacterString5 + cCharacterString3 + cCharacterString5 + cCharacterString1;
+						
+				
+						// 	cSentence4 ← cCharacterString2 & cCharacterString5 & cCharacterString3 & cCharacterString5 & cCharacterString4 & cCharacterString5 & cCharacterString1
+						cSentence4 = cCharacterString2 + cCharacterString5 + cCharacterString3 + cCharacterString5 + cCharacterString4 + cCharacterString5 + cCharacterString1;
+				
+						$("#sp_resultat_code").html(cSentence1);
+						$("#sp_resultat_code2").html(cSentence2);
+						$("#sp_resultat_code3").html(cSentence3);
+						$("#sp_resultat_code4").html(cSentence4);
+				
+						// 	Ecrire : cSentence1
+						// 	Ecrire : cSentence2
+						// 	Ecrire : cSentence3
+						// 	Ecrire : cSentence4
+						
+						// Fin
+				
+							
+						}
+
+
+
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<form action="exo_4.php" method="POST" name="formPHP">
+						<p>Voici quatres varientes de la célèbre phrase « belle marquise, vos beaux yeux me font mourir d’amour »</p>
+						<!-- <p><input type="text" name="iNombreUtilisateur" id="iNombreUtilisateur"></p> -->
+						<p>
+							<!-- <button class="btn_blue" id="btn_jsprompt" onClick="Exo_2_2(); return false;">EXEC JavaScript VIA Prompt</button> -->
+							<button class="btn_green" id="btn_jsform" onClick="Exo_2_4_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_2_4_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" id="btn_php" onClick="return false;">EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code"></span></br>
+					<span id="sp_resultat_code2"></span></br>
+					<span id="sp_resultat_code3"></span></br>
+					<span id="sp_resultat_code4"></span>
+					<span><?php echo $sMessage; ?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

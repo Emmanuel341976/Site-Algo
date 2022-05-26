@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 5 - Exo 2b</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison5.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 5 - Exercice 2b</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; a) Ecrire un algorithme qui demande un nombre compris entre 10 et 20, jusqu’à ce que la réponse convienne. En cas
+					de réponse supérieure à 20, on fera apparaître un message : « Plus petit ! », et inversement, « Plus grand ! » si le
+					nombre est inférieur à 10.</br></br>
+					b) Ecrire un algorithme qui choisit un nombre au hasard compris entre 1 et 100.</br>
+					Pour ceci, on utilise la fonction :</br></br>
+					iNombreHasard <- random[1..100]</br></br>
+					Demander à l'utilisateur de trouver le nombre. On fera apparaître un message : « Plus petit ! », et inversement,
+					« Plus grand ! » jusqu’à ce que l'utilisateur ait trouvé et afficher en combien de coups. &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+Variables iUserNumber iRandomNumber
+
+Début
+
+Ecrire "Saisisez un nombre comris entre 1 et 100."
+Lire iUserNumber
+
+iRandomNumber <- random[1..100]
+
+TANTQUE iUserNumber != iRandomNumber
+		SI iUserNumber < iRandomNumber ALORS
+			Ecrire "Plus grand."
+				SINON 
+					Ecrire "Plus petit."
+		FINSI
+
+		Ecrire "Saisissez un nouveau nombre"
+FINTANTQUE
+
+Ecrire "Bravo, vous avez trouvé le nombre, c'était : " + iRadomNumber
+
+
+Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform', 'btn_random')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_5_2b_jsform()
+	{
+
+		
+
+		// Variables iUserNumber iRandomNumber
+			let iUserNumber;
+		// Début
+		
+		// Ecrire "Saisisez un nombre comris entre 1 et 100."
+		// Lire iUserNumber
+		iUserNumber = document.getElementById("iUserNumber").value;
+		iUserNumber = Math.floor(iUserNumber);
+
+		// iRandomNumber <- random[1..100]
+		
+		// TANTQUE iUserNumber != iRandomNumber
+		//         SI iUserNumber < iRandomNumber ALORS
+		//             Ecrire "Plus grand."
+		//                 SINON 
+		//                     Ecrire "Plus petit."
+		//         FINSI
+		
+		//         Ecrire "Saisissez un nouveau nombre"
+		// FINTANTQUE
+
+		if (iRandomNumber !== iUserNumber)
+			{
+				if (iRandomNumber < iUserNumber)
+					{
+						iTryNumber = ++iTryNumber;
+						document.getElementById("sp_resultat_code").innerHTML = "Votre nombre est plus grand, saisissez un nouveau nombre.";
+					}
+
+						else
+						{
+							iTryNumber = ++iTryNumber;
+							document.getElementById("sp_resultat_code").innerHTML = "Votre nombre est plus petit, saisissez un nouveau nombre.";
+						}
+			}
+
+			if (iRandomNumber == iUserNumber)
+						{
+							document.getElementById("sp_resultat_code").innerHTML = "Vous avez trouvé le nombre mystère en " + iTryNumber + " coups, il s'agissait bien de " + iRandomNumber + "."; 
+						}
+		
+		// Ecrire "Bravo, vous avez trouvé le nombre, c'était : " + iRadomNumber
+		
+		
+		// Fin
+
+
+
+	}
+
+
+
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+
+					
+					<textarea class="tarea_pink">
+
+	function Exo_5_2b_jquery()
+	{
+	
+		
+		
+	
+		// Variables iUserNumber iRandomNumber
+		var iUserNumber;
+		// Début
+		
+		// Ecrire "Saisisez un nombre comris entre 1 et 100."
+		// Lire iUserNumber
+		iUserNumber = $("#iUserNumber").val();
+		iUserNumber = Math.floor(iUserNumber);
+	
+		// iRandomNumber <- random[1..100]
+		
+		// TANTQUE iUserNumber != iRandomNumber
+		//         SI iUserNumber < iRandomNumber ALORS
+		//             Ecrire "Plus grand."
+		//                 SINON 
+		//                     Ecrire "Plus petit."
+		//         FINSI
+		
+		//         Ecrire "Saisissez un nouveau nombre"
+		// FINTANTQUE
+	
+		if (iRandomNumber !== iUserNumber)
+			{
+				if (iRandomNumber < iUserNumber)
+					{
+						iTryNumber = ++iTryNumber;
+						$("#sp_resultat_code").html("Votre nombre est plus grand, saisissez un nouveau nombre.");
+					}
+	
+						else
+						{
+							iTryNumber = ++iTryNumber;
+							$("#sp_resultat_code").html("Votre nombre est plus petit, saisissez un nouveau nombre.");
+						}
+			}
+	
+			if (iRandomNumber == iUserNumber)
+						{
+							$("#sp_resultat_code").html("Vous avez trouvé le nombre mystère en " + iTryNumber +" coups, il s'agissait bien de " + iRandomNumber + "."); 
+						}
+		
+		// Ecrire "Bravo, vous avez trouvé le nombre, c'était : " + iRadomNumber
+		
+		
+		// Fin
+	
+	
+	}
+
+
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+		$sMessage= "";
+
+		$iCompteur = 0;
+	
+		if(!isset($_POST["iRandomNumber"]))
+		{
+	
+			$iRandomNumber = rand(1, 100);
+	
+	
+		
+	
+		}
+	
+		
+		
+	
+	
+	
+	if (isset($_POST["btn_php"]))
+	{
+	
+		
+		
+	
+		
+		// Variables iUserNumber iRandomNumber
+	
+		// Début
+		
+		// Ecrire "Saisisez un nombre comris entre 1 et 100."
+		// Lire iUserNumber
+	
+		$iUserNumber = $_POST["iUserNumber"];
+	
+		$iNumber = $_POST["iRandomNumber"];
+		
+	
+		//iRandomNumber <- random[1..100]
+		
+		// TANTQUE iUserNumber != iRandomNumber
+		//         SI iUserNumber < iRandomNumber ALORS
+		//             Ecrire "Plus grand."
+		//                 SINON 
+		//                     Ecrire "Plus petit."
+		//         FINSI
+		
+		//         Ecrire "Saisissez un nouveau nombre"
+		// FINTANTQUE
+	
+		$iCompteur = $_POST["iCompteur"];
+		$iCompteur++;
+	
+		if ($iNumber !== $iUserNumber)
+			{
+				if ($iNumber < $iUserNumber)
+					{
+						$sMessage = "Votre nombre est plus grand, saisissez un nouveau nombre." . $iNumber;
+						
+					}
+	
+						else
+						{
+							$sMessage = "Votre nombre est plus petit, saisissez un nouveau nombre." . $iNumber;
+							
+						}
+				
+			}
+	
+			if ($iNumber == $iUserNumber)
+						{
+							$sMessage = "Vous avez trouvé le nombre mystère, il s'agissait bien de " . $iNumber . "." . " En " . $iCompteur . " coups.";
+							
+						}
+		
+		// Ecrire "Bravo, vous avez trouvé le nombre, c'était : " + iRadomNumber
+		
+		
+		// Fin
+	
+		
+		$iRandomNumber = $iNumber;
+		
+	
+	}
+		
+		require "exo_2b.html";
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+
+					<p>
+						<button class="btn_grey" onClick="RandomNumber()">Générer un nombre aléatoire</button>
+						<input type="hidden" name="iRadomNumber" id="iRandomNumber">
+					</p>
+					
+					<form action="exo_2b.php" method="POST" name="formPHP">
+						
+						<p>Saisisez un nombre compris entre 1 et 100 pour trouver le nombre mystère.</p>
+						<?php echo "<input type='hidden' name='iRandomNumber' id='iRandomNumber' value='" . $iRandomNumber . "'>"; ?>
+						<?php echo "<input type='hidden' name='iCompteur' id='iCompteur' value='" . $iCompteur . "'>"; ?>
+
+						<p><input type="text" name="iUserNumber" id="iUserNumber"></p>
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_5_2b_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_5_2b_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+						<p>
+							
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

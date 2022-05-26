@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Saison 3 Exercice 5</title>
+
+	<?php include "../commun/head.html" ?>
+	
+	<script defer src="../js/saison3.js"></script> 
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+        <!--aside start -->
+        <aside>
+        </aside>
+        <!--aside end-->
+
+        <!--section start -->
+		<section>
+			<div>
+				<h2>Saison 3 Exercice 5</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo;Ecrire un algorithme qui demande deux nombres à l’utilisateur et l’informe ensuite si le produit est négatif ou positif
+					(on inclut cette fois le traitement du cas où le produit peut être nul). Attention toutefois, on ne doit pas calculer le
+					produit !&raquo;</p>
+			</div>
+			<div>
+				<h3>PSEUDO-CODE</h3>
+				<textarea class="txt_pseudocode">
+
+
+Début
+
+Variable : iUserNumber iUserNumber1 Entier
+
+Ecrire : "Entrez un nombre."
+Lire iUserNumber
+
+Ecrire : "Entrez un second nombre."
+Lire iUserNumber1
+
+SI iUserNumber == 0 OU iUserNumber1 == 0 ALORS
+	Ecrire : "Le résultat est égal à 0"
+
+SINONSI iUserNumber < 0 ET iUserNumber1 < 0 ALORS
+	Ecrire : "Le nombre est positif"
+
+SINONSI iUserNumber > 0 ET iUserNumber1 > 0 ALORS
+	Ecrire : "Le nombre est positif"
+
+SINON
+	Ecrire : "le résultat est négatif"
+
+FINSI
+
+Fin
+				</textarea>
+			</div>
+			<div>
+				<p>
+					<!-- <button class="btn_blue" onClick="showCode('div_jsprompt', 'btn_jsprompt')">CODE JavaScript VIA Prompt</button> -->
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				<div id="div_jsprompt">
+					<textarea class="txt_jsprompt tarea_blue">
+
+
+					</textarea>
+				</div>
+				<div id="div_jsform">
+					<textarea class="txt_jsform tarea_green">
+
+						function Exo_3_5_jsform()
+
+						{
+
+						// Début
+
+						// Variable : iUserNumber iUserNumber1 Entier
+
+						let iUserNumber, iUserNumber1;
+
+						// Ecrire : "Entrez un nombre."
+						// Lire iUserNumber
+
+						iUserNumber = document.getElementById("iUserNumber").value;
+
+						// Ecrire : "Entrez un second nombre."
+						// Lire iUserNumber1
+
+						iUserNumber1 = document.getElementById("iUserNumber1").value;
+
+						// SI iUserNumber == 0 ou iUserNumber1 == 0 ALORS
+						// 	Ecrire : "Le résultat est égal à 0"
+
+						// SINONSI iUserNumber < 0 ET iUserNumber1 < 0 ALORS
+						// 	Ecrire : "Le nombre est positif"
+
+						// SINONSI iUserNumber > 0 ET iUserNumber1 > 0 ALORS
+						// 	Ecrire : "Le nombre est positif"
+
+						// SINON
+						// 	Ecrire : "le résultat est négatif"
+
+						// FINSI
+
+								if (iUserNumber == 0 | iUserNumber1 == 0){
+
+										document.getElementById("sp_resultat_code").innerHTML = ("Le résultat est égal à zéro");}
+
+										else {
+												if (iUserNumber < 0 & iUserNumber1 < 0){
+
+														document.getElementById("sp_resultat_code").innerHTML = ("Le résultat est positif"); }
+
+														else {
+																if (iUserNumber > 0 & iUserNumber1 > 0){
+
+																		document.getElementById("sp_resultat_code").innerHTML = ("Le résultat est positif"); }
+
+																		else{
+																				document.getElementById("sp_resultat_code").innerHTML = ("Le résultat est négatif");
+																		}
+														
+														}
+
+														
+										
+										}
+
+
+						// Fin
+
+
+						}
+
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+					<textarea class="txt_jquery tarea_pink">
+
+						function Exo_3_5_jquery()
+
+						{
+
+						// Début
+
+						// Variable : iUserNumber iUserNumber1 Entier
+
+						var iUserNumber, iUserNumber1;
+
+						// Ecrire : "Entrez un nombre."
+						// Lire iUserNumber
+
+						iUserNumber = $("#iUserNumber").val();
+
+						// Ecrire : "Entrez un second nombre."
+						// Lire iUserNumber1
+
+						iUserNumber1 = $("#iUserNumber1").val();
+
+						// SI iUserNumber == 0 ou iUserNumber1 == 0 ALORS
+						// 	Ecrire : "Le résultat est égal à 0"
+
+						// SINONSI iUserNumber < 0 ET iUserNumber1 < 0 ALORS
+						// 	Ecrire : "Le nombre est positif"
+
+						// SINONSI iUserNumber > 0 ET iUserNumber1 > 0 ALORS
+						// 	Ecrire : "Le nombre est positif"
+
+						// SINON
+						// 	Ecrire : "le résultat est négatif"
+
+						// FINSI
+
+
+
+
+								if (iUserNumber == 0 || iUserNumber1 == 0)
+										{$("#sp_resultat_code").html("Le résultat est égal à zéro");}
+
+												else if (iUserNumber < 0 && iUserNumber1 < 0)
+														{$("#sp_resultat_code").html("Le résultat est positif");}
+
+																else if (iUserNumber > 0 && iUserNumber1 > 0)
+																		{$("#sp_resultat_code").html("Le résultat est positif"); }
+
+																				else{$("#sp_resultat_code").html("Le résultat est négatif");}
+														
+														
+
+														
+										
+										
+
+
+						// Fin
+
+
+						}
+
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="txt_php tarea_black">
+
+	$sMessage= "";
+
+	// Début
+
+if (isset($_POST["btn_php"])){
+	
+
+	// Variable : iUserNumber iUserNumber1 Entier
+	
+	// Ecrire : "Entrez un nombre."
+	// Lire iUserNumber
+	$iUserNumber = $_POST["iUserNumber"];
+	// Ecrire : "Entrez un second nombre."
+	// Lire iUserNumber1
+	$iUserNumber1 = $_POST["iUserNumber1"];
+	// SI iUserNumber == 0 OU iUserNumber1 == 0 ALORS
+	// 	Ecrire : "Le résultat est égal à 0"
+	
+	// SINONSI iUserNumber < 0 ET iUserNumber1 < 0 ALORS
+	// 	Ecrire : "Le nombre est positif"
+	
+	// SINONSI iUserNumber > 0 ET iUserNumber1 > 0 ALORS
+	// 	Ecrire : "Le nombre est positif"
+	
+	// SINON
+	// 	Ecrire : "le résultat est négatif"
+	
+	// FINSI
+
+if ($iUserNumber == 0 || $iUserNumber1 == 0)
+
+	{
+	$sMessage = "Le résultat est égal à 0.";
+	}
+
+		elseif (($iUserNumber < 0 && $iUserNumber1 <0) || ($iUserNumber > 0 && $iUserNumber1 > 0 ))
+
+			{
+				$sMessage = "Le résultat est positif.";
+			}
+
+				else
+					{
+						$sMessage = "Le résultat est négatif.";
+					}
+}
+
+	// Fin
+
+	require "exo_5.html";
+
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<form action="exo_5.php" method="POST" name="formPHP">
+						<p>Entrez un premier nombre</p>
+						<p><input type="text" name="iUserNumber" id="iUserNumber"></p>
+						<p>Entrez un second nombre</p>
+						<p><input type="text" name="iUserNumber1" id="iUserNumber1"></p>
+						<p>
+							<!-- <button class="btn_blue" id="btn_jsprompt" onClick="Exo(); return false;">EXEC JavaScript VIA Prompt</button> -->
+							<button class="btn_green" id="btn_jsform" onClick="Exo_3_5_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_3_5_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php">EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?></span>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+            <?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

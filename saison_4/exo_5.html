@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 4 - Exo 5</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison4.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 4 - Exercice 5</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Les habitants de Toon’sCity paient l’impôt selon les règles suivantes :</br>
+					- les hommes de plus de 20 ans paient l’impôt</br>
+					- les femmes paient l’impôt si elles ont entre 18 et 35 ans</br>
+					- les autres ne paient pas d’impôt</br>
+					Le programme demandera donc l’âge et le sexe du Toon, et se prononcera donc ensuite sur le fait que l’habitant est
+					imposable ou non. &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+Variables iToonAge entier et sToonGenre string
+
+Début
+
+Ecrire : "Quel est votre age de TOON?"
+
+Lire iToonAge
+
+Ecrire : "Quel est votre genre de TOON (F/M)?"
+
+Lire sToonGenre
+
+SI cToonGenre == M et iToonAge > 20 ALORS
+	
+	Ecrire "Vous êtes imposable"
+
+	SINON
+			SI cToonGenre == F ET (iToonAge >= 18 ET iToonAge < 35)
+
+				Ecrire "Vous êtes imposable"
+
+
+					SINON 
+
+					Ecrire "Vous n'êtes pas imposable"
+FINSI
+
+Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				<div id="div_jsprompt">
+
+
+
+
+					<textarea class="tarea_blue">
+
+					</textarea>
+
+
+
+
+
+				</div>
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_4_5_jsform()
+	{
+	
+	
+	//     Variables iToonAge entier et sToonGenre string
+	
+	// Début
+	
+	// Ecrire : "Quel est votre age de TOON?"
+	
+	// Lire iToonAge
+	
+	iToonAge = document.getElementById("iToonAge").value;
+	
+	// Ecrire : "Quel est votre genre de TOON (F/M)?"
+	
+	// Lire sToonGenre
+	
+	sToonGenre = document.getElementById("sToonGenre").value;
+	
+	// SI cToonGenre == M et iToonAge > 20 ALORS
+	
+	if (sToonGenre == M && iToonAge > 20)
+		
+	// 	Ecrire "Vous êtes imposable"
+	
+		{
+			document.getElementById("sp_resultat_code").innerHTML = "Vous êtes imposable";
+		}
+	
+	
+	// 	SINON
+	
+	
+	
+	// 			SI cToonGenre == F ET (iToonAge >= 18 ET iToonAge < 35)
+	
+			else if (cToonGenre == F && (iToonAge >= 18 && iToonAge < 35))
+			
+			// 				Ecrire "Vous êtes imposable"
+	
+				{
+					document.getElementById("sp_resultat_code").innerHTML = "Vous êtes imposable"; 
+				}
+	
+	// 					SINON 
+	
+					else 
+	
+	// 					Ecrire "Vous n'êtes pas imposable"
+	
+						{
+							document.getElementById("sp_resultat_code").innerHTML = "Vous n'êtes pas imposable"; 
+						}
+	
+	// FINSI
+	
+	// FIn
+	
+	}
+
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+
+					
+					<textarea class="tarea_pink">
+
+function Exo_4_5_jquery()
+{
+
+
+//     Variables iToonAge entier et sToonGenre string
+
+// Début
+
+// Ecrire : "Quel est votre age de TOON?"
+
+// Lire iToonAge
+
+iToonAge = $("#iToonAge").val();
+
+// Ecrire : "Quel est votre genre de TOON (F/M)?"
+
+// Lire sToonGenre
+
+sToonGenre = $("#sToonGenre").val();
+
+// SI cToonGenre == M et iToonAge > 20 ALORS
+
+if (sToonGenre == "M" && iToonAge > 20)
+	
+// 	Ecrire "Vous êtes imposable"
+
+    {
+        $("#sp_resultat_code").html ("Vous êtes imposable.");
+    }
+
+
+// 	SINON
+
+
+
+// 			SI cToonGenre == F ET (iToonAge >= 18 ET iToonAge < 35)
+
+        else 
+        {
+        
+            if (sToonGenre == "F" && (iToonAge >= 18 && iToonAge < 35))
+            
+            // 				Ecrire "Vous êtes imposable"
+
+                {
+                    $("#sp_resultat_code").html ("Vous êtes imposable."); 
+                
+                }
+                         // 	SINON 
+
+                    else 
+
+                        // Ecrire "Vous n'êtes pas imposable"
+
+                        {
+                            $("#sp_resultat_code").html ("Vous n'êtes pas imposable."); 
+                        }
+                
+        }
+// FINSI
+
+// FIn
+
+}
+
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+	$sMessage= "";
+
+	if (isset($_POST["btn_php"]))
+	{
+
+
+	// Variables iToonAge entier et sToonGenre string
+
+	// Début
+	
+	// Ecrire : "Quel est votre age de TOON?"
+	
+	// Lire iToonAge
+
+	$iToonAge = $_POST["iToonAge"];
+		
+	// Ecrire : "Quel est votre genre de TOON (F/M)?"
+	
+	// Lire sToonGenre
+
+	$sToonGenre = $_POST["sToonGenre"];
+	
+	// SI cToonGenre == M et iToonAge > 20 ALORS
+	if ($sToonGenre == "M" && $iToonAge > 20)
+		{
+			$sMessage = "Vous êtes imposable";
+		}	
+	// 	Ecrire "Vous êtes imposable"
+	
+	// 	SINON
+	// 			SI cToonGenre == F ET (iToonAge >= 18 ET iToonAge < 35)
+			else if ($sToonGenre == "F" && ($iToonAge >= 18 && $iToonAge < 35))
+				{
+					$sMessage = "Vous êtes imposable";
+				}
+			// 				Ecrire "Vous êtes imposable"
+			
+			// 					SINON
+
+			// 					Ecrire "Vous n'êtes pas imposable"
+
+					else
+					{
+						$sMessage = "Vous n'êtes pas imposable";
+					}
+					
+					// FINSI
+					
+					// Fin
+		}
+
+	require "exo_5.html";
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<form action="exo_5.php" method="POST" name="formPHP">
+						<p>Quel est votre age de TOOON?</p>
+						<p><input type="text" name="iToonAge" id="iToonAge"></p>
+						<p>Quel est votre genre de TOOON? (F/M)</p>
+						<p><input type="text" name="sToonGenre" id="sToonGenre"></p>
+
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_4_5_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_4_5_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

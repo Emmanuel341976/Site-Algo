@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 5 - Exo 11b</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison5.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 5 - Exercice 11b</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Écrire un algorithme qui permette de connaître ses chances de gagner au tiercé, quarté, quinté et autres impôts volontaires. </br></br>
+					On demande à l’utilisateur le nombre de chevaux partants, et le nombre de chevaux joués. Les deux messages affichés devront être :	</br></br>
+					Dans l’ordre : une chance sur X de gagner.</br>
+					Dans le désordre : une chance sur Y de gagner.</br></br>
+					X et Y nous sont donnés par la formule suivante, si n est le nombre de chevaux partants et p le nombre de chevaux
+					joués (on rappelle que le signe ! signifie "factorielle", comme dans l'exercice 5.7 ci-dessus) :</br></br>
+					X = n ! / (n - p) !</br>
+					Y = n ! / (p ! * (n – p) !)</br></br>
+					NB : cet algorithme peut être écrit d’une manière simple, mais relativement peu performante. Ses performances
+					peuvent être singulièrement augmentées par une petite astuce. Vous commencerez par écrire la manière la plus
+					simple, puis vous identifierez le problème, et écrirez une deuxième version permettant de le résoudre.
+					
+				&raquo;
+				</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+Variables  iNumHorse, iPlayedHorse, rOrderChance, iUnorderChance;
+
+
+Etapes :
+	- Saisie du nombre de chevaux partants.
+	- Saisie du nombre de chevaux joués.
+	- Création fonction factorielle.
+	- Calcul de pourcentage de chance de gagner dans l'ordre en faisant appel à la fonction factorielle.
+	- Calcul de pourcentage de chance de gagner dans le désordre en faisant appel à la fonction factorielle.
+	- Affichage des résultats.
+
+
+Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_5_11b_jsform()
+	{
+	
+		function factorielle(iNumber)
+			{
+	
+				let i, iFactorielle;
+	
+			
+				iFactorielle = 1;
+	
+				for(i = 1; i <= iNumber; i++)
+				{
+	
+				iFactorielle = iFactorielle * i;
+	
+				}
+	
+				return iFactorielle;
+			}
+	
+		
+	//Calcul de pourcentage de chance de gagner dans l'ordre.
+	rOrderChance = parseInt(factorielle(iNumbHorse) / factorielle(iNumbHorse - iPlayedHorse));
+	
+	
+	//Calcul de pourcentage de chance de gagner dans le désordre.
+	rUnorderChance = parseInt(factorielle(iNumbHorse) / (factorielle(iPlayedHorse) * factorielle(iNumbHorse - iPlayedHorse)));
+	
+	
+	//Affichage du résultat
+		document.getElementById("sp_resultat_code").innerHTML = "Les chances de gagner dans l'ordre sont de 1 chance sur " + rOrderChance + ".</br>" + "Les chances de gagner dans le désordre sont de 1 chance sur " + rUnorderChance + ".";
+	
+	
+	}	
+	
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+					<textarea class="tarea_pink">
+
+	function Exo_5_11b_jquery()
+	{
+	
+		function factorielle(iNumber)
+	{
+	
+		var i, iFactorielle;
+	
+		
+		iFactorielle = 1;
+	
+		for(i = 1; i <= iNumber; i++)
+		{
+	
+		iFactorielle = iFactorielle * i;
+	
+		}
+	
+		return iFactorielle;
+	}
+	
+		
+	//Calcul de pourcentage de chance de gagner dans l'ordre.
+	rOrderChance = parseInt(factorielle(iNumbHorse) / factorielle(iNumbHorse - iPlayedHorse));
+	
+	
+	//Calcul de pourcentage de chance de gagner dans le désordre.
+	rUnorderChance = parseInt(factorielle(iNumbHorse) / (factorielle(iPlayedHorse) * factorielle(iNumbHorse - iPlayedHorse)));
+	
+	
+	//Affichage du résultat
+		$("#sp_resultat_code").html("Les chances de gagner dans l'ordre sont de 1 chance sur " + rOrderChance + ".</br>" + "Les chances de gagner dans le désordre sont de 1 chance sur " + rUnorderChance + ".");
+	
+		
+	
+	}
+		
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+		$sMessage= "";
+
+		$rOrderChance=0;
+		$rUnorderChance=0;
+		$i=1;
+	
+	
+	if (isset($_POST["btn_php"]))
+	{
+		$iNumbHorse = $_POST["iNumbHorse"];
+		$iPlayedHorse = $_POST["iPlayedHorse"];
+	
+	
+		function factorielle($iNumber)
+	{
+	
+		
+	
+		
+		$iFactorielle = 1;
+	
+		for($i = 1; $i <= $iNumber; $i++)
+		{
+	
+		$iFactorielle = $iFactorielle * $i;
+	
+		}
+	
+		return $iFactorielle;
+	}
+	
+	
+		$rOrderChance = (factorielle($iNumbHorse) / factorielle($iNumbHorse - $iPlayedHorse));
+		$rUnorderChance = (factorielle($iNumbHorse) / (factorielle($iPlayedHorse) * factorielle($iNumbHorse - $iPlayedHorse)));
+		
+	
+	$sMessage = "Les chances de gagner dans l'ordre sont de 1 chance sur " . $rOrderChance . ".</br>" . "Les chances de gagner dans le désordre sont de 1 chance sur " . $rUnorderChance . ".";
+	
+	
+	}
+	
+		require "exo_11b.html";
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<p>
+						<button class="btn_grey" onClick="Saisie_prompt_exo_11(); return false;">Saisie des données</button>
+						
+						<!-- <input type="text" name="iposition" id="iposition" value="iposition"> -->
+					</p>
+					
+					<form action="exo_11b.php" method="POST" name="formPHP">
+						<p>Saisissez le nombre de chevaux partants et le nombre de chevaux pariés</p>
+						 <!-- <?php echo "<input type='hidden' name='iTotal' id='iTotal' value='" . $iTotal . "'>"; ?> -->
+						 <!-- <?php echo "<input type='hidden' name='iPayement' id='iPayement' value='" . $iPayement . "'>"; ?> -->
+						 <div id="NumbHorse"> </div>
+						 <div id="PlayedHorse"> </div>
+						
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_5_11b_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_5_11b_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

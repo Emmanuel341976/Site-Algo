@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 4 - Exo 6</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison4.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 4 - Exercice 6</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Les élections législatives, en Toonerie Nationale, obéissent à la règle suivante :</br></br>
+					- lorsque l'un des candidats obtient plus de 50% des suffrages, il est élu dès le premier tour.</br>
+					- en cas de deuxième tour, peuvent participer uniquement les candidats ayant obtenu au moins 12,5%
+					des voix au premier tour.</br></br>
+					Vous devez écrire un algorithme qui permette la saisie des scores de quatre candidats au premier tour. Cet
+					algorithme traitera ensuite le candidat numéro 1 (et uniquement lui) : il dira s'il est élu, battu, s'il se trouve en
+					ballottage favorable (il participe au second tour en étant arrivé en tête à l'issue du premier tour) ou défavorable (il
+					participe au second tour sans avoir été en tête au premier tour). &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+Variables rResultC1 rResultC2 rResultC3 rResultC4 reel
+
+Début
+
+Ecrire : "quel est le résultat du premier candidat?"
+
+lire rResultC1
+
+Ecrire : "quel est le résultat du deuxième candidat?"
+
+lire rResultC2
+
+Ecrire : "quel est le résultat du troisième candidat?"
+
+lire rResultC3
+
+Ecrire : "quel est le résultat du quatrième candidat?"
+
+lire rResultC4
+
+SI rResultC1 > 50 ALORS
+
+		Ecrire "Le premier cadidat est élu au premier tour."
+
+			SINON SI rResultC1 < 12.5 ALORS
+					
+					Ecrire "Le premier cadidat est battu."
+
+						SINON SI rResultC1 > rResultC2 ET rResultC1 > rResultC3 ET rResultC1 > rResultC4 ALORS
+
+							Ecrire "Le premier cadidat est en ballottage favorable."
+
+								SINON SI rResultC1 < rResultC2 OU rResultC1 < rResultC3 OU rResultC1 < rResultC4 ALORS
+
+									Ecrire "Le premier cadidat est en ballottage défavorable."
+
+FINSI									
+
+Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_4_6_jsform()
+	{
+	
+	// Variables rResultC1 rResultC2 rResultC3 rResultC4 reel
+	
+	// Début
+	
+	// Ecrire : "Quel est le résultat du premier candidat?"
+	
+	// lire rResultC1
+	
+	rResultC1 = document.getElementById("rResultC1").value;
+	
+	// Ecrire : "Quel est le résultat du deuxième candidat?"
+	
+	// lire rResultC2
+	
+	rResultC2 = document.getElementById("rResultC2").value;
+	
+	// Ecrire : "Quel est le résultat du troisième candidat?"
+	
+	// lire rResultC3
+	
+	rResultC3 = document.getElementById("rResultC3").value;
+	
+	// Ecrire : "Quel est le résultat du quatrième candidat?"
+	
+	// lire rResultC4
+	
+	rResultC4 = document.getElementById("rResultC4").value;
+	
+	// SI rResultC1 > 50 ALORS
+	
+	// 		Ecrire "Le premier cadidat est élu au premier tour."
+	
+	// 			SINON SI rResultC1 < 12.5 ALORS
+						
+	// 					Ecrire "Le premier cadidat est battu."
+	
+	// 						SINON SI rResultC1 > rResultC2 ET rResultC1 > rResultC3 ET rResultC1 > rResultC4 ALORS
+	
+	// 							Ecrire "Le premier cadidat est en ballottage favorable"
+	
+	// 								SINON SI rResultC1 < rResultC2 OU rResultC1 < rResultC3 OU rResultC1 < rResultC4 ALORS
+	
+	// 									Ecrire "Le premier cadidat est en ballottage défavorable"
+										
+	// FINSI
+	
+	if (rResultC1 > 50)
+	
+		{
+			document.getElementById("sp_resultat_code").innerHTML ="Le premier cadidat est élu au premier tour.";
+		}
+	
+		else if (rResultC1 < 12.5)
+	
+			{
+				document.getElementById("sp_resultat_code").innerHTML = "Le premier cadidat est battu.";
+			}
+	
+			else if (rResultC1 > rResultC2 && rResultC1 > rResultC3 && rResultC1 > rResultC4)
+	
+				{
+					document.getElementById("sp_resultat_code").innerHTML =  "Le premier cadidat est en ballottage favorable";
+				}
+	
+					else 
+						{
+							document.getElementById("sp_resultat_code").innerHTML =  "Le premier cadidat est en ballottage défavorable";
+						}
+	
+	// Fin
+	
+	}
+
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+
+					
+					<textarea class="tarea_pink">
+
+	function Exo_4_6_jquery()
+	{
+
+	// Variables rResultC1 rResultC2 rResultC3 rResultC4 reel
+
+	// Début
+
+	// Ecrire : "Quel est le résultat du premier candidat?"
+
+	// lire rResultC1
+
+	rResultC1 = $("#rResultC1").val();
+
+	// Ecrire : "Quel est le résultat du deuxième candidat?"
+
+	// lire rResultC2
+
+	rResultC2 = $("#rResultC2").val();
+
+	// Ecrire : "Quel est le résultat du troisième candidat?"
+
+	// lire rResultC3
+
+	rResultC3 = $("#rResultC3").val();
+
+	// Ecrire : "Quel est le résultat du quatrième candidat?"
+
+	// lire rResultC4
+
+	rResultC4 = $("#rResultC4").val();
+
+	// SI rResultC1 > 50 ALORS
+
+	// 		Ecrire "Le premier cadidat est élu au premier tour."
+
+	// 			SINON SI rResultC1 < 12.5 ALORS
+						
+	// 					Ecrire "Le premier cadidat est battu."
+
+	// 						SINON SI rResultC1 > rResultC2 ET rResultC1 > rResultC3 ET rResultC1 > rResultC4 ALORS
+
+	// 							Ecrire "Le premier cadidat est en ballottage favorable"
+
+	// 								SINON SI rResultC1 < rResultC2 OU rResultC1 < rResultC3 OU rResultC1 < rResultC4 ALORS
+
+	// 									Ecrire "Le premier cadidat est en ballottage défavorable"
+										
+	// FINSI
+
+	if (rResultC1 > 50)
+
+		{
+			$("#sp_resultat_code").html ("Le premier cadidat est élu au premier tour.");
+		}
+
+		else
+
+		{
+		
+			if (rResultC1 < 12.5)
+
+				{
+					$("#sp_resultat_code").html  ("Le premier cadidat est battu.");
+				}
+
+				else
+				{ 
+				
+					if (rResultC1 > rResultC2 && rResultC1 > rResultC3 && rResultC1 > rResultC4)
+
+						{
+							$("#sp_resultat_code").html ("Le premier cadidat est en ballottage favorable");
+						}
+
+							else 
+								{
+									$("#sp_resultat_code").html ("Le premier cadidat est en ballottage défavorable");
+								}
+				}                    
+		}
+
+	// Fin
+
+	}
+
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+		$sMessage= "";
+
+		if (isset($_POST["btn_php"]))
+	{
+		// Variables rResultC1 rResultC2 rResultC3 rResultC4 reel
+	
+		// Début
+	
+		// Ecrire : "quel est le résultat du premier candidat?"
+	
+		// lire rResultC1
+	
+		$rResultC1 = $_POST["rResultC1"];
+	
+		// Ecrire : "quel est le résultat du deuxième candidat?"
+	
+		// lire rResultC2
+	
+		$rResultC2 = $_POST["rResultC2"];
+	
+		// Ecrire : "quel est le résultat du troisième candidat?"
+	
+		// lire rResultC3
+	
+		$rResultC3 = $_POST["rResultC3"];
+	
+		// Ecrire : "quel est le résultat du quatrième candidat?"
+	
+		// lire rResultC4
+	
+		$rResultC4 = $_POST["rResultC4"];
+	
+		// SI rResultC1 > 50 ALORS
+	
+		// 		Ecrire "Le premier cadidat est élu au premier tour."
+	
+		// 			SINON SI rResultC1 < 12.5 ALORS
+							
+		// 					Ecrire "Le premier cadidat est battu."
+	
+		// 						SINON SI rResultC1 > rResultC2 ET rResultC1 > rResultC3 ET rResultC1 > rResultC4 ALORS
+	
+		// 							Ecrire "Le premier cadidat est en ballottage favorable."
+	
+		// 								SINON SI rResultC1 < rResultC2 OU rResultC1 < rResultC3 OU rResultC1 < rResultC4 ALORS
+	
+		// 									Ecrire "Le premier cadidat est en ballottage défavorable."
+	
+		if ($rResultC1 > 50)
+	
+			{
+				$sMessage = "Le premier cadidat est élu au premier tour.";
+			}
+	
+				else if ($rResultC1 < 12.5)
+	
+					{
+						$sMessage = "Le premier cadidat est battu.";
+					}
+	
+						else if ($rResultC1 > $rResultC2 && $rResultC1 > $rResultC3 && $rResultC1 > $rResultC4)
+	
+							{
+								$sMessage = "Le premier cadidat est en ballottage favorable.";
+							}
+	
+								else
+									{
+										$sMessage = "Le premier cadidat est en ballottage défavorable.";
+									}
+	
+	
+		// FINSI									
+	
+		// Fin
+	
+	}
+	
+		require "exo_6.html";
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<form action="exo_6.php" method="POST" name="formPHP">
+						<p>Quel est le résultat du premier candidat?</p>
+						<p><input type="text" name="rResultC1" id="rResultC1"></p>
+						<p>Quel est le résultat du deuxième candidat?</p>
+						<p><input type="text" name="rResultC2" id="rResultC2"></p>
+						<p>Quel est le résultat du troisième candidat?</p>
+						<p><input type="text" name="rResultC3" id="rResultC3"></p>
+						<p>Quel est le résultat du quatrième candidat?</p>
+						<p><input type="text" name="rResultC4" id="rResultC4"></p>
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_4_6_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_4_6_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php">EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 5 - Exo 3</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison5.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 5 - Exercice 3</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Ecrire un algorithme qui demande un nombre de départ, et qui ensuite affiche les dix nombres suivants.
+					Par exemple, si l'utilisateur entre le nombre 17, le programme affichera les nombres de 18 à 27. &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+Variables iUserNumber
+
+Début
+
+
+
+Ecrire "entrez un nombre."
+
+Lire iUserNumber
+
+
+
+	TANTQUE iUserNumber <= iUserNumber +10
+		
+			Ecrire iUserNumber +1
+
+			
+	FINTANTQUE
+
+
+
+Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_5_3_jsform()
+	{
+
+
+	//     Variables iUserNumber
+
+		let iUserNumber, sResultat, temp, nb10;
+
+	// Début
+
+
+
+	// Ecrire "Entrez un nombre."
+
+	// Lire iUserNumber
+
+		temp = "";
+		iUserNumber = parseInt(document.getElementById("iUserNumber").value);
+	
+
+		sResultat = "Vous avez saisi le nombre : " + iUserNumber + " Les 10 nombres suivants seront : ";
+	
+		nb10 = iUserNumber + 10;
+
+		while (iUserNumber <  nb10)
+			{
+				iUserNumber = iUserNumber + 1 ;
+
+				temp = temp + " " + iUserNumber;
+				
+			}
+			
+			document.getElementById("sp_resultat_code").innerHTML = sResultat + temp; 
+
+
+
+	// 	TANTQUE iUserNumber <= iUserNumber +10
+			
+	// 			Ecrire iUserNumber +1
+
+				
+	// 	FINTANTQUE
+
+
+
+	// Fin
+
+
+	}
+	
+
+
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+	function Exo_5_3_jquery()
+	{
+
+		//     Variables iUserNumber
+
+		var iUserNumber, sResultat, temp, nb10;
+
+	// Début
+
+
+
+	// Ecrire "Entrez un nombre."
+
+	// Lire iUserNumber
+
+		temp = "";
+		iUserNumber = parseInt($("#iUserNumber").val());
+	
+
+		sResultat = "Vous avez saisi le nombre : " + iUserNumber + " Les 10 nombres suivants seront : ";
+	
+		nb10 = iUserNumber + 10;
+
+		while (iUserNumber <  nb10)
+			{
+				iUserNumber = iUserNumber + 1 ;
+
+				temp = temp + " " + iUserNumber;
+				
+			}
+			
+			$("#sp_resultat_code").html(sResultat + temp); 
+
+
+
+	// 	TANTQUE iUserNumber <= iUserNumber +10
+			
+	// 			Ecrire iUserNumber +1
+
+				
+	// 	FINTANTQUE
+
+
+
+	// Fin
+
+
+	}
+
+
+					
+					<textarea class="tarea_pink">
+
+	
+
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+	$sMessage= "";
+
+	if (isset($_POST["btn_php"]))
+	{
+		
+		$iUserNumber = $_POST["iUserNumber"];
+
+		$iNumber = $iUserNumber + 10;
+
+		$sDecompte = " ";
+
+		$sResultat = "Vous avez saisi le nombre : " . $iUserNumber  . ". Les 10 nombres suivants sont : ";
+
+		while ($iUserNumber <= $iNumber)
+			{
+			$iUserNumber = $iUserNumber + 1;
+
+				$sDecompte = $sDecompte . " " . $iUserNumber; 
+
+
+
+				
+			}
+
+			$sMessage = $sResultat . $sDecompte;
+	}
+
+
+		
+		require "exo_3.html";
+
+	
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<form action="exo_3.php" method="POST" name="formPHP">
+						<p>Entrez un nombre.</p>
+						<p><input type="number" name="iUserNumber" id="iUserNumber"></p>
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_5_3_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_5_3_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

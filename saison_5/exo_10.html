@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 5 - Exo 10</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison5.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 5 - Exercice 10</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Lire la suite des prix (en euros entiers et terminée par zéro) des achats d’un client. 
+					Calculer la somme qu’il doit, lire la somme qu’il paye, et simuler la remise de la monnaie en affichant les textes "10 Euros",
+					 "5 Euros" et "1 Euro" autant de fois qu’il y a de coupures de chaque sorte à rendre &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+
+Variables  page, iArticlePrice, iTotalPrice, iPayement, iRendu, iNbB10, iNbB5, iNbP1;
+
+Etapes :
+
+	- Saisie des prix et calcul du total
+
+		TANTQUE iArticlePrice !=0
+			création du code HTML à injecter dans la page et qui contient tous les imputs avec les prix :
+
+			page += "<p>" + " Prix article " + iExo10 +	'<input type ="number" name="prixarticle' +	iExo10 + '"id="prixarticle' + iExo10 + '" value="' + iArticlePrice + '"></p>'
+			
+			iTotalPrice <- iTotalPrice + iArticlePrice;
+
+	- Affichage du total
+		création du code HTML à injecter dans la page et qui contient le prix total avec son étiquette
+		iTotal = '<p> Prix Total <input type="text" name="iTotalPrice" id="iTotalPrice" value="' + iTotalPrice + '"></p>'
+
+	- Sasie du payement
+		Ecrire : Quel est le montant de votre payement?
+		Lire : iPayement
+
+	- Détermination du rendu et des pièces et billets rendus
+
+		iRendu <- iPayement - iTotalPrice
+
+		determination nb billets 10 euros  : 
+				iNbB10 <- partie enière de (iRendu / 10)
+		
+		determination nb billets 5 euros  :
+				SI iRendu - (partie enière de (iRendu / 10)) * 10 > 5 
+				ALORS iNbB5 <- 1 (1 billet de 5 euros à rendre)
+				SINON iNbB5 <- 0 (0 billet de 5 euros à rendre)
+
+		determination nb billets 5 euros  : 
+				SI iRendu - (partie enière de (iRendu / 10)) * 10 > 5
+				ALORS iNbP1 <- (iRendu - (partie enière de (iRendu / 10)) * 10 -5)  pièce(s) de 1 euros à rendre
+				SINON iNbP1 <- (iRendu - (partie enière de (iRendu / 10)) * 10) pièce(s) de 1 euros à rendre
+
+	- Affichage du rendu
+					Ecrire iNbB10 billet(s) de 10 euros à rendre 
+					Ecrire iNbB5 billet(s) de 5 euros à rendre
+					Ecrire iNbP1 pièces(s) de 1 euros à rendre
+		
+Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_5_10_jsform()
+	{
+
+	let  iRendu, iNbB10=0, iNbB5=0, iNbP1=0;
+
+	iRendu = parseInt(iPayement) - parseInt(iTotalPrice);
+
+	console.log(iRendu)
+	console.log(iPayement)
+	console.log(iTotalPrice)
+
+
+	iNbB10 = Math.floor(iRendu / 10);
+
+	if (iRendu - (Math.floor(iRendu /10)) * 10 >= 5)
+		{
+			iNbB5 = 1;
+		}
+			else
+			{
+				iNbB5 = 0;
+			}
+
+	if (iRendu - (Math.floor(iRendu / 10)) * 10 > 5)
+		{
+			iNbP1 = (iRendu - (Math.floor(iRendu / 10)) * 10 -5);
+		}
+			else
+			{
+				if (iRendu - (Math.floor(iRendu / 10)) * 10 < 5)
+					{
+						iNbP1 = (iRendu - (Math.floor(iRendu / 10)) * 10);
+					}
+			}
+			document.getElementById("sp_resultat_code").innerHTML = "La Monnaie qui vous est rendue est : </br>" + iNbB10 + " billet(s) de 10 euros. </br>" + iNbB5 + " billet(s) de 5 euros. </br>" + iNbP1 + " pièces(s) de 1 euro. </br>";
+
+	}
+		
+	
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+					<textarea class="tarea_pink">
+
+	function Exo_5_10_jquery()
+	{
+	
+		
+	
+		var  iRendu, iNbB10=0, iNbB5=0, iNbP1=0;
+	
+		iRendu = parseInt(iPayement) - parseInt(iTotalPrice);
+		
+		console.log(iRendu)
+		console.log(iPayement)
+		console.log(iTotalPrice)
+		
+		
+		iNbB10 = Math.floor(iRendu / 10);
+		
+		if (iRendu - (Math.floor(iRendu /10)) * 10 >= 5)
+			{
+				iNbB5 = 1;
+			}
+				else
+				{
+					iNbB5 = 0;
+				}
+		
+		if (iRendu - (Math.floor(iRendu / 10)) * 10 > 5)
+			{
+				iNbP1 = (iRendu - (Math.floor(iRendu / 10)) * 10 -5);
+			}
+				else
+				{
+					if (iRendu - (Math.floor(iRendu / 10)) * 10 < 5)
+						{
+							iNbP1 = (iRendu - (Math.floor(iRendu / 10)) * 10);
+						}
+				}
+				$("#sp_resultat_code").html("La Monnaie qui vous est rendue est : </br>" + iNbB10 + " billet(s) de 10 euros. </br>" + iNbB5 + " billet(s) de 5 euros. </br>" + iNbP1 + " pièces(s) de 1 euro. </br>");
+	
+	}
+		
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+	if (isset($_POST["btn_php"]))
+	{
+		$iRendu = 0;
+		$iNbB10 = 0;
+		$iNbB5 = 0;
+		$iNbP1 = 0;
+	
+	
+		$iPayement = $_POST["iPayement"];
+	
+		$iTotalPrice = $_POST["iTotalPrice"];
+	
+		$iRendu = $iPayement - $iTotalPrice;
+	
+		$iNbB10 = floor($iRendu / 10);
+		
+	
+		if ($iRendu - ((floor($iRendu / 10)) * 10) >= 5)
+		{
+			$iNbB5 = 1;
+		}
+			else
+			{
+				$iNbB5 = 0;
+			}
+	
+		if ($iRendu - (floor($iRendu / 10)) * 10 > 5)
+			{
+				$iNbP1 = ($iRendu - (floor($iRendu / 10)) * 10 -5);
+			}
+				else
+				{
+					if ($iRendu - (floor($iRendu / 10)) * 10 < 5)
+						{
+							$iNbP1 = ($iRendu - (floor($iRendu / 10)) * 10);
+						}
+				}
+	
+	
+	
+	
+		$sMessage =  "La Monnaie qui vous est rendue est : </br>" . $iNbB10 . " billet(s) de 10 euros. </br>" . $iNbB5 . " billet(s) de 5 euros. </br>" . $iNbP1 . " pièces(s) de 1 euro. </br>";
+	
+	}
+	
+	
+	
+		
+		require "exo_10.html";
+
+
+
+		
+	
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<p>
+						<button class="btn_grey" onClick="Saisie_prompt_exo_10(); return false;">Saisie des prix</button>
+						
+						<!-- <input type="text" name="iposition" id="iposition" value="iposition"> -->
+					</p>
+					
+					<form action="exo_10.php" method="POST" name="formPHP">
+						<p>Saisissez les prix des articles.</br>
+							Pour arrêter la saisie taper 0.</p>
+						 <!-- <?php echo "<input type='hidden' name='iTotal' id='iTotal' value='" . $iTotal . "'>"; ?> -->
+						 <!-- <?php echo "<input type='hidden' name='iPayement' id='iPayement' value='" . $iPayement . "'>"; ?> -->
+						<div id="input"> </div>
+						<div id="Total"> </div>
+						<div id="Payement"> </div>
+						
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_5_10_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_5_10_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

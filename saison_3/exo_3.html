@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Saison 3 Exercice 3</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison3.js"></script>
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+        <!--aside start -->
+        <aside>
+        </aside>
+        <!--aside end-->
+
+        <!--section start -->
+		<section>
+			<div>
+				<h2>Saison 3 Exercice 3</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo;Ecrire un algorithme qui demande trois noms à l’utilisateur et l’informe ensuite s’ils sont rangés ou non dans l’ordre
+					alphabétique.&raquo;</p>
+			</div>
+			<div>
+				<h3>PSEUDO-CODE</h3>
+				<textarea class="txt_pseudocode">
+Variables : sName sName1 sName2 Caractères
+
+Début
+
+Ecrire : "Entrez un prénom."
+Lire sName
+
+Ecrire : "Entrez un second prénom."
+Lire sName1
+
+Ecrire : "Entrez un troisième prénom."
+Lire sName2
+
+SI sName < sName1 ET sName1 < sName2 ALORS
+	Ecrire : "Les prénoms sont classés par ordre alphabétique"
+
+SINON
+	Ecrire : "Les prénoms ne sont pas classés par ordre alphabétique"
+
+FINSI
+
+Fin
+				</textarea>
+			</div>
+			<div>
+				<p>
+					<!-- <button class="btn_blue" onClick="showCode('div_jsprompt', 'btn_jsprompt')">CODE JavaScript VIA Prompt</button> -->
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				<div id="div_jsprompt">
+					<textarea class="txt_jsprompt tarea_blue">
+
+
+					</textarea>
+				</div>
+				<div id="div_jsform">
+					<textarea class="txt_jsform tarea_green">
+
+						function Exo_3_3_jsform()
+						{
+
+
+
+						// Début
+						// Variables : sName sName1 sName2 Caractères
+						let sName, sName1, sName2;
+
+						// Ecrire : "Entrez un prénom."
+						// Lire sName
+						sName = document.getElementById("sName").value;
+
+						// Ecrire : "Entrez un second prénom."
+						// Lire sName1
+						sName1 = document.getElementById("sName1").value;
+
+						// Ecrire : "Entrez un troisième prénom."
+						// Lire sName2
+						sName2 = document.getElementById("sName2").value;
+
+						// SI sName < sName1 ET sName1 < sName2 ALORS
+						// 	Ecrire : "Les prénoms sont classés par ordre alphabétique"
+
+						if (sName < sName1 & sName1 < sName2){
+
+								document.getElementById("sp_resultat_code").innerHTML = ("Les prénoms sont classés par ordre alphabétique");
+						}
+
+						// SINON
+						// 	Ecrire : "Les prénoms ne sont pas classés par ordre alphabétique"
+
+						else{
+								document.getElementById("sp_resultat_code").innerHTML = ("Les prénoms ne sont pas classés par ordre alphabétique");
+						}
+						// FINSI
+
+						// Fin
+
+						}
+
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+					<textarea class="txt_jquery tarea_pink">
+
+						function Exo_3_3_jquery()
+						{
+
+
+
+						// Début
+						// Variables : sName sName1 sName2 Caractères
+						var sName, sName1, sName2;
+
+						// Ecrire : "Entrez un prénom."
+						// Lire sName
+						sName = $("#sName").val();
+
+						// Ecrire : "Entrez un second prénom."
+						// Lire sName1
+						sName1 = $("#sName1").val();
+
+						// Ecrire : "Entrez un troisième prénom."
+						// Lire sName2
+						sName2 = $("#sName2").val();
+
+						// SI sName < sName1 ET sName1 < sName2 ALORS
+						// 	Ecrire : "Les prénoms sont classés par ordre alphabétique"
+
+						if (sName < sName1 && sName1 < sName2){
+
+								$("#sp_resultat_code").html("Les prénoms sont classés par ordre alphabétique");
+						}
+
+						// SINON
+						// 	Ecrire : "Les prénoms ne sont pas classés par ordre alphabétique"
+
+						else{
+								$("#sp_resultat_code").html("Les prénoms ne sont pas classés par ordre alphabétique");
+						}
+						// FINSI
+
+						// Fin
+
+						}
+
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="txt_php tarea_black">
+
+						// Variables : sName sName1 sName2 Caractères
+
+	// Début
+	if (isset($_POST["btn_php"]))
+
+	{
+	// Ecrire : "Entrez un prénom."
+	// Lire sName
+	$sName = $_POST["sName"];
+	
+	// Ecrire : "Entrez un second prénom."
+	// Lire sName1
+	$sName1 = $_POST["sName1"];
+	// Ecrire : "Entrez un troisième prénom."
+	// Lire sName2
+	$sName2 = $_POST["sName2"];
+	// SI sName < sName1 ET sName1 < sName2 ALORS
+	// 	Ecrire : "Les prénoms sont classés par ordre alphabétique"
+
+	if (($sName < $sName1) && ($sName1 < $sName2))
+	{
+		$sMessage = "Les Prénoms sont classés par ordre alphabétique.";
+	}
+
+	else
+	{
+		$sMessage = "Les Prénoms ne sont pas classés par ordre alphabétique.";
+	}
+	
+	// SINON
+	// 	Ecrire : "Les prénoms ne sont pas classés par ordre alphabétique"
+	
+	// FINSI
+	
+	// Fin
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<form action="exo_3.php" method="POST" name="formPHP">
+						<p>Entrez trois prénoms je vous dirai si ils sont classés par ordre alphabétique.</p>
+						<p>Entrez un prénom</p>
+						<p><input type="text" name="sName" id="sName"></p>
+						<p>Entrez un second prénom</p>
+						<p><input type="text" name="sName1" id="sName1"></p>
+						<p>Entrez un troisième prénom</p>
+						<p><input type="text" name="sName2" id="sName2"></p>
+						<p>
+							<!-- <button class="btn_blue" id="btn_jsprompt" onClick="Exo(); return false;">EXEC JavaScript VIA Prompt</button> -->
+							<button class="btn_green" id="btn_jsform" onClick="Exo_3_3_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_3_3_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php">EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?></span>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+            <?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

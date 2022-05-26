@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 5 - Exo 2a</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison5.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 5 - Exercice 2a</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; a) Ecrire un algorithme qui demande un nombre compris entre 10 et 20, jusqu’à ce que la réponse convienne. En cas
+					de réponse supérieure à 20, on fera apparaître un message : « Plus petit ! », et inversement, « Plus grand ! » si le
+					nombre est inférieur à 10.</br></br>
+					b) Ecrire un algorithme qui choisit un nombre au hasard compris entre 1 et 100.</br>
+					Pour ceci, on utilise la fonction :</br></br>
+					iNombreHasard <- random[1..100]</br></br>
+					Demander à l'utilisateur de trouver le nombre. On fera apparaître un message : « Plus petit ! », et inversement,
+					« Plus grand ! » jusqu’à ce que l'utilisateur ait trouvé et afficher en combien de coups. &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+Variables iUserNumber
+
+Début
+
+
+
+    Ecrire "Saisisez un nombre comris entre 10 et 20."
+    Lire iUserNumber
+
+    
+
+	 TANTQUE iUserNumber < 10 OU iUserNumber > 20
+             SI iUserNumber < 10 ALORS
+                 Ecrire "Plus grand."
+                     SINON
+                         Ecrire "Plus petit."
+             FINSI
+
+             Ecrire "Saisissez un nouveau nombre"
+     FINTANTQUE
+     Ecrire "Merci le nombre est compris entre 10 et 20."
+    
+
+
+Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_5_2a_jsform()
+	{
+	
+		// Début
+
+		// Ecrire "Saisisez un nombre comris entre 10 et 20."
+		// Lire iUserNumber
+	
+		iUserNumber = document.getElementById("iUserNumber").value;
+	
+		// TANTQUE iUserNumber < 10 OU iUserNumber > 20
+		//         SI iUserNumber < 10 ALORS
+		//             Ecrire "Plus grand."
+		//                 SINON
+		//                     Ecrire "Plus petit."
+		//         FINSI
+	
+		//         Ecrire "Saisissez un nouveau nombre"
+		// FINTANTQUE
+
+		// Ecrire "Merci le nombre est compris entre 10 et 20."
+
+	
+	if (iUserNumber < 10)
+	{ 
+		document.getElementById("sp_resultat_code").innerHTML = "Plus grand!! Veuillez saisir une nouveau nombre.";
+	}
+		else if (iUserNumber > 20)
+		{
+			document.getElementById("sp_resultat_code").innerHTML = "Plus petit!! Veuillez saisir une nouveau nombre.";
+		}
+	
+			else 
+			{
+				document.getElementById("sp_resultat_code").innerHTML = "Merci le nombre est compris entre 10 et 20.";
+			}
+	
+	
+	
+	
+	// Fin
+	
+	}
+
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+
+					
+					<textarea class="tarea_pink">
+
+function Exo_5_2a_jquery()
+{
+
+        let iUserNumber;
+    // Début
+
+    // Ecrire "Saisisez un nombre comris entre 10 et 20."
+    // Lire iUserNumber
+
+    iUserNumber = $("#iUserNumber").val();
+
+	// TANTQUE iUserNumber < 10 OU iUserNumber > 20
+    //         SI iUserNumber < 10 ALORS
+    //             Ecrire "Plus grand."
+    //                 SINON
+    //                     Ecrire "Plus petit."
+    //         FINSI
+
+    //         Ecrire "Saisissez un nouveau nombre"
+    // FINTANTQUE
+    // Ecrire "Merci le nombre est compris entre 10 et 20."
+    // 
+
+    if (iUserNumber < 10)
+    { 
+        $("#sp_resultat_code").html( "Plus grand!! Veuillez saisir une nouveau nombre.");
+    }
+        else if (iUserNumber > 20)
+        {
+            $("#sp_resultat_code").html( "Plus petit!! Veuillez saisir une nouveau nombre.");
+        }
+
+            else 
+            {
+                $("#sp_resultat_code").html( "Merci le nombre est compris entre 10 et 20.");
+            }
+
+}
+
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+						$sMessage= "";
+
+if (isset($_POST["btn_php"]))
+{
+
+	$iUserNumber = $_POST["iUserNumber"];
+
+	if ($iUserNumber < 10)
+	{ 
+		$sMessage = "Plus grand!! Veuillez saisir une nouveau nombre.";
+	}
+		else if ($iUserNumber > 20)
+		{
+			$sMessage =  "Plus petit!! Veuillez saisir une nouveau nombre.";
+		}
+	
+			else 
+			{
+				$sMessage =  "Merci le nombre est compris entre 10 et 20.";
+			}
+	
+ 
+
+}
+	
+	require "exo_2a.html";
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<form action="exo_2a.php" method="POST" name="formPHP">
+						<p>Saisisez un nombre compris entre 10 et 20.</p>
+						<p><input type="text" name="iUserNumber" id="iUserNumber"></p>
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_5_2a_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_5_2a_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>

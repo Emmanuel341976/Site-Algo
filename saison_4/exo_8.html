@@ -1,0 +1,408 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 4 - Exo 8</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison4.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 4 - Exercice 8</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Ecrivez un algorithme qui a près avoir demandé un numéro de jour, de mois et d'année à l'utilisateur, renvoie s'il
+					s'agit ou non d'une date valide.</br></br>
+					Cet exercice est certes d’un manque d’originalité affligeant, mais après tout, en algorithmique comme ailleurs, il faut
+					connaître ses classiques ! Et quand on a fait cela une fois dans sa vie, on apprécie pleinement l’existence d’un type
+					numérique « date » dans certains langages…).</br></br>
+					Il n'est sans doute pas inutile de rappeler rapidement que le mois de février compte 28 jours, sauf si l’année est
+					bissextile, auquel cas il en compte 29. L’année est bissextile si elle est divisible par quatre. Toutefois, les années
+					divisibles par 100 ne sont pas bissextiles, mais les années divisibles par 400 le sont.</br></br>
+					Un dernier petit détail : vous ne savez pas, pour l’instant, exprimer correctement en pseudo-code l’idée qu’un
+					nombre A est divisible par un nombre B. Aussi, vous vous contenterez d’écrire en bons télégraphistes que A divisible
+					par B se dit « A dp B ». Nous verrons les modulos plus tard. &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+Variables iUserDay iUserMonth iUserYear bYearTest
+
+Début
+
+Ecrire "Donner le numéro du jour dans le mois."
+Lire iUserDay
+
+Ecrire "Donner le numéro du mois."
+Lire iUserMonth
+
+Ecrire "Donner l'année."
+Lire iUserYear
+
+SI iUserDay == 31 ET (iUserMonTh == 2 OU iUserMonth == 4 OU iUserMonth == 6 OU iUserMonth == 9 OU iUserMonth == 11 ) ALORS
+	Ecrire "La date n'est pas valide."
+
+		SINON SI iUserDay == 29 ET iUserMonth == 2 ET !iUserYear dp 4 ALORS
+			Ecrire "La date n'est pas valide."
+
+				SINON Ecrire "La date est valide."
+
+FINSI
+
+Fin
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_4_8_jsform()
+	{
+	
+	
+		// Variables iUserDay iUserMonth iUserYear
+	
+	let iUserDay, iUserMonth, iUserYear, bYearTest;
+	
+		// Début
+		
+		// Ecrire "Donner le numéro du jour dans le mois."
+		// Lire iUserDay
+	
+		iUserDay = document.getElementById("iUserDay").value;
+	
+		// Ecrire "Donner le numéro du mois."
+		// Lire iUserMonth
+	
+		iUserMonth = document.getElementById("iUserMonth").value;
+		
+		// Ecrire "Donner l'année."
+		// Lire iUserYear
+	
+		iUserYear = document.getElementById("iUserYear").value;
+	
+		// Test année Bissextile
+	
+		if (((iUserYear / 4) - Math.trunc(iUserYear / 4)) * 100 == 0)
+			{
+				bYearTest = true;   
+			}
+					else bYearTest = false;
+	
+		if(bYearTest = true)    
+			{
+				if (r((iUserYear / 100) - Math.trunc(iUserYear / 100)) * 100 == 0)
+					{
+						bYearTest = true;
+					}
+							else bYearTest = false;
+			}
+	
+		if(bYearTest = true)    
+			{
+				if (((iUserYear / 400) - Math.trunc(iUserYear / 400)) * 100 == 0)
+					{
+						bYearTest = true;
+					}
+							else bYearTest = false;
+			}
+	
+			
+		
+		// SI iUserDay == 31 ET (iUserMonTh == 2 OU iUserMonth == 4 OU iUserMonth == 6 OU iUserMonth == 9 OU iUserMonth == 11 ) ALORS
+		//     Ecrire "La date n'est pas valide."
+		
+		//         SINON SI iUserDay == 29 ET iUserMonth == 2 ET !iUserYear dp 4 ALORS
+		//             Ecrire "La date n'est pas valide."
+		
+		//                 SINON Ecrire "La date est valide."
+	
+	
+	if (iUserDay == 31 && (iUserMonth == 4 || iUserMonth == 6 || iUserMonth == 9 || iUserMonth == 11))
+		{
+			document.getElementById("sp_resultat_code").innerHTML = ("La date n'est pas valide.");
+		}
+	
+			else if ( iUserDay == 29 && iUserMonth == 2 && bYearTest !== true)
+				{
+					document.getElementById("sp_resultat_code").innerHTML = ("La date n'est pas valide.");
+				}
+	
+					else
+					{
+						document.getElementById("sp_resultat_code").innerHTML = ("La date est valide.");
+					}
+	
+	
+	
+		
+		// FINSI
+		
+		// Fin    
+	
+	
+	}
+
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+
+					
+					<textarea class="tarea_pink">
+
+function Exo_4_8_jquery()
+{
+
+    // Variables iUserDay iUserMonth iUserYear
+
+    var iUserDay, iUserMonth, iUserYear, bYearTest;
+
+    // Début
+    
+    // Ecrire "Donner le numéro du jour dans le mois."
+    // Lire iUserDay
+
+    iUserDay = $("#iUserDay").val();
+
+    // Ecrire "Donner le numéro du mois."
+    // Lire iUserMonth
+
+    iUserMonth = $("#iUserMonth").val();
+    
+    // Ecrire "Donner l'année."
+    // Lire iUserYear
+
+    iUserYear = $("#iUserYear").val();
+
+    // Test année Bissextile
+
+    if (((iUserYear / 4) - Math.trunc(iUserYear / 4)) * 100 == 0)
+       {
+            bYearTest = true;   
+        }
+                else bYearTest = false;
+
+    if(bYearTest = true)    
+        {
+            if (((iUserYear / 100) - Math.trunc(iUserYear / 100)) * 100 == 0)
+                {
+                    bYearTest = true;
+                }
+                        else bYearTest = false;
+        }
+
+    if(bYearTest = true)    
+        {
+            if (((iUserYear / 400) - Math.trunc(iUserYear / 400)) * 100 == 0)
+                {
+                    bYearTest = true;
+                }
+                        else bYearTest = false;
+        }
+
+    
+    // SI iUserDay == 31 ET (iUserMonTh == 2 OU iUserMonth == 4 OU iUserMonth == 6 OU iUserMonth == 9 OU iUserMonth == 11 ) ALORS
+    //     Ecrire "La date n'est pas valide."
+    
+    //         SINON SI iUserDay == 29 ET iUserMonth == 2 ET !iUserYear dp 4 ALORS
+    //             Ecrire "La date n'est pas valide."
+    
+    //                 SINON Ecrire "La date est valide."
+
+
+if (iUserDay == 31 && (iUserMonth == 4 || iUserMonth == 6 || iUserMonth == 9 || iUserMonth == 11))
+    {
+        $("#sp_resultat_code").html ("La date n'est pas valide.");
+    }
+
+        else if ( iUserDay == 29 && iUserMonth == 2 && bYearTest !== true)
+            {
+                $("#sp_resultat_code").html ("La date n'est pas valide.");
+            }
+
+                else
+                {
+                    $("#sp_resultat_code").html ("La date est valide.");
+                }
+
+
+
+    
+    // FINSI
+    
+    // Fin 
+
+}
+
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+	$sMessage= "";
+
+	if (isset($_POST["btn_php"]))
+	{
+		// Variables iUserDay iUserMonth iUserYear bYearTest
+	
+		// Début
+		
+		// Ecrire "Donner le numéro du jour dans le mois."
+		// Lire iUserDay
+	
+		$iUserDay = $_POST["iUserDay"];
+	
+		// Ecrire "Donner le numéro du mois."
+		// Lire iUserMonth
+	
+		$iUserMonth = $_POST["iUserMonth"];
+	
+		// Ecrire "Donner l'année."
+		// Lire iUserYear
+	
+		$iUserYear = $_POST["iUserYear"];
+	
+		// Test année Bissextile
+	
+		if ((($iUserYear / 4) - floor($iUserYear / 4)) * 100 == 0)
+		{
+			$bYearTest = true;   
+		}
+				else $bYearTest = false;
+	
+	if($bYearTest = true)    
+		{
+			if ((($iUserYear / 100) - floor($iUserYear / 100)) * 100 == 0)
+				{
+					$bYearTest = true;
+				}
+						else $bYearTest = false;
+		}
+	
+	if($bYearTest = true)    
+		{
+			if ((($iUserYear / 400) - floor($iUserYear / 400)) * 100 == 0)
+				{
+					$bYearTest = true;
+				}
+						else $bYearTest = false;
+		}
+	
+		// SI iUserDay == 31 ET (iUserMonTh == 2 OU iUserMonth == 4 OU iUserMonth == 6 OU iUserMonth == 9 OU iUserMonth == 11 ) ALORS
+		// 	Ecrire "La date n'est pas valide."
+		
+		// 		SINON SI iUserDay == 29 ET iUserMonth == 2 ET !iUserYear dp 4 ALORS
+		// 			Ecrire "La date n'est pas valide."
+		
+		// 				SINON Ecrire "La date est valide."
+	
+	
+		if ($iUserDay == 31 && ($iUserMonth == 4 || $iUserMonth == 6 || $iUserMonth == 9 || $iUserMonth == 11))
+				{
+					$sMessage = "La date n'est pas valide.";
+				}
+	
+					else if ( $iUserDay == 29 && $iUserMonth == 2 && $bYearTest !== true)
+						{
+							$sMessage = ("La date n'est pas valide.");
+						}
+	
+							else
+							{
+								$sMessage = ("La date est valide.");
+							}
+
+		// FINSI
+		
+		// Fin
+	
+	}
+		require "exo_8.html";		
+
+					</textarea>
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					<form action="exo_8.php" method="POST" name="formPHP">
+						<p>Donner le numéro du jour dans le mois.</p>
+						<p><input type="text" name="iUserDay" id="iUserDay"></p>
+						<p>Donner le numéro du mois.</p>
+						<p><input type="text" name="iUserMonth" id="iUserMonth"></p>
+						<p>Donner l'année.</p>
+						<p><input type="text" name="iUserYear" id="iUserYear"></p>
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_4_8_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_4_8_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php">EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span><?php echo $sMessage; ?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>
