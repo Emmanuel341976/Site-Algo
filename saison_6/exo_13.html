@@ -55,7 +55,7 @@
 	
 	Tab2 <- [0, Tab[0]]
 
-	icomt <- iUserNumber -1
+	icompt <- iUserNumber -1
 
 	POUR j < icompt
 
@@ -151,7 +151,7 @@
 	{
 		var iUserNumber=0, Tab = new Array(), Tab2 = new Array(2), i = 0, j=1, iValue, icompt=0;    
 	
-	iUserNumber = document.getElementById("iUserNumber").value;
+	iUserNumber = $("#iUserNumber").val();
 	
 	for (i; i < iUserNumber; i++)
 		{
@@ -244,7 +244,6 @@
 				</div>
 				<div class="div_resultat">
 					<p>Ici mon résultat</p>
-					<p>La somme des tableau est le tableau suivant:</p>
 					<span id="sp_resultat_code">
 						
 					</span>

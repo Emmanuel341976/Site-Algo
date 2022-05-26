@@ -562,7 +562,7 @@ function Exo_6_13_jquery()
 {
     var iUserNumber=0, Tab = new Array(), Tab2 = new Array(2), i = 0, j=1, iValue, icompt=0;    
 
-iUserNumber = document.getElementById("iUserNumber").value;
+iUserNumber = $("#iUserNumber").val();
 
 for (i; i < iUserNumber; i++)
     {
@@ -583,4 +583,81 @@ for (j; j < icompt; j++)
                 }
         }
     $("#sp_resultat_code").html("Le nombre le plus grand est : " + Tab2[1] + ".</br>" + "Il est à l'index " + Tab2[0] + " du tableau.");
+}
+
+
+function generate_field_exo_14()
+{
+    let page = "", i = 0;
+
+    nb = parseInt(document.getElementById("iUserNumber").value);
+
+    for (i; i < nb; i++) {
+        page +=
+            "<p>" +
+            " Note " +
+            (i+1) +
+            '<input type ="number" name="nombre' +
+            i +
+            '"id="nombre' +
+            i +
+            '" value="' +
+            '"></p>';
+    }
+
+    document.getElementById("input").innerHTML = page;
+}
+
+
+function Exo_6_14_jsform()
+{
+    let iUserNumber=0, Tab = new Array(), i = 0, j=0, iValue, rNoteSum = 0, rAverage = 0, iNbSup = 0;    
+
+iUserNumber = document.getElementById("iUserNumber").value;
+
+for (i; i < iUserNumber; i++)
+    {
+        iValue = "nombre" + i;
+        Tab[i] = parseInt(document.getElementById(iValue).value);
+        rNoteSum = rNoteSum + Tab[i]; 
+    }
+
+rAverage = (rNoteSum / iUserNumber).toFixed(2);    
+                                  
+
+for (j; j < iUserNumber; j++)
+        {
+            if (rAverage < Tab[j])
+                {
+                    iNbSup = iNbSup +1;
+                }
+        }
+    document.getElementById("sp_resultat_code").innerHTML = "La moyenne de la classe est : " + rAverage + ".</br>" + iNbSup + " élève(s) ont eut une note supérieure à la moyenne de la classe.";
+}
+
+
+function Exo_6_14_jquery()
+{
+    var iUserNumber=0, Tab = new Array(), i = 0, j=0, iValue, rNoteSum = 0, rAverage = 0, iNbSup = 0;    
+
+iUserNumber = $("#iUserNumber").val();
+
+for (i; i < iUserNumber; i++)
+    {
+        iValue = "#nombre" + i;
+        Tab[i] = parseInt($(iValue).val());
+        rNoteSum = rNoteSum + Tab[i]; 
+    }
+
+rAverage = (rNoteSum / iUserNumber).toFixed(2);    
+                                  
+
+for (j; j < iUserNumber; j++)
+        {
+            if (rAverage < Tab[j])
+                {
+                    iNbSup = iNbSup +1;
+                }
+        }
+    $("#sp_resultat_code").html("La moyenne de la classe est : " + rAverage + ".</br>" + iNbSup + " élève(s) ont eut une note supérieure à la moyenne de la classe.");
 }
