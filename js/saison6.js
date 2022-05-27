@@ -812,3 +812,81 @@ function Exo_6_16_jquery()
             $("#sp_resultat_code").html("Les valeurs du tableau ne sont pas consécutives" + Tab16);
         }
 }
+
+
+function generate_consecutive_exo_17()
+{
+
+let page = "";
+
+for (let i = 0; i < 100; i++) {
+    page +=
+        "<p>" +
+        " Nombre " +
+        i +
+        '<input type ="number" name="nombre' +
+        i +
+        '"id="nombre' +
+        i +
+        '" value="' +
+        Math.floor(Math.random() * 100) +
+        '"></p>';
+}
+
+document.getElementById("input").innerHTML = page;
+
+
+}
+
+
+function Exo_6_17_jsform()
+{
+    let Tab = new Array(100), i = 1, j = 0, ivalue, inumber;
+
+    Tab[0] = document.getElementById("nombre0").value;
+
+    for (i; i < 100; i++)
+        {
+            inumber = "nombre" + i;
+            ivalue = document.getElementById(inumber).value;
+
+            j = i - 1;
+
+            while (j >= 0 && Tab[j] > ivalue)
+                        {
+                         Tab[j+1] = Tab[j];
+                         j--;   
+                        }
+            Tab[j+1] = ivalue;
+        }
+
+    document.getElementById("sp_resultat_code").innerHTML = "le tableau dont les index sont classés est : </br>" + Tab;
+
+}
+
+
+function Exo_6_17_jquery()
+{
+    var Tab = new Array(100), i = 1, j = 0, ivalue, inumber;
+
+    Tab[0] = $("#nombre0").value;
+
+    for (i; i < 100; i++)
+        {
+            inumber = "#nombre" + i;
+            ivalue = parseInt($(inumber).val());
+
+            j = i - 1;
+
+            while (j >= 0 && Tab[j] > ivalue)
+                        {
+                         Tab[j+1] = Tab[j];
+                         j--;   
+                        }
+            Tab[j+1] = ivalue;
+        }
+
+
+    $("#sp_resultat_code").html("le tableau dont les index sont classés est : </br>" + Tab);
+
+}

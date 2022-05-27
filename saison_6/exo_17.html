@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 6 - Exo 17</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison6.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 6 - Exercice 17</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Ecrire un algorithme permettant de saisir 100 valeurs et qui les range au fur et à mesure 
+					dans un tableau. Cela s'appelle le tri à la volée (qui est une forme de tri par insertion) &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+	Variables : tab (100), i = 1, j = 0, ivalue;
+		
+	Début
+
+	- Récupération de la valeur de Tab[0]
+		Lire nombre0
+		tab[0] <- nombre0
+	
+	- Récupération des nombre 1 par 1 et insertion dans le tableau
+		POUR i <- 1 à 100
+			Lire nombrei
+			iValue <- nombrei
+			
+			j <- i - 1
+
+			TANTQUE j >= 0 ET Tab[j] > iValue
+					{
+						Tab[j+1] <- Tab[j]
+						j <- j - 1
+					}
+			Tab[j+1] <- iValue		
+	
+	Fin
+
+
+
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	function Exo_6_17_jsform()
+	{
+		let Tab = new Array(100), i = 1, j = 0, ivalue, inumber;
+	
+		Tab[0] = document.getElementById("nombre0").value;
+	
+		for (i; i < 100; i++)
+			{
+				inumber = "nombre" + i;
+				ivalue = document.getElementById(inumber).value;
+	
+				j = i - 1;
+	
+				while (j >= 0 && Tab[j] > ivalue)
+							{
+								Tab[j+1] = Tab[j];
+								j--;   
+							}
+				Tab[j+1] = ivalue;
+			}
+	
+		document.getElementById("sp_resultat_code").innerHTML = "le tableau dont les index sont classés est : </br>" + Tab;
+	
+	}
+						
+	
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+					<textarea class="tarea_pink">
+
+	function Exo_6_17_jquery()
+	{
+		var Tab = new Array(100), i = 1, j = 0, ivalue, inumber;
+	
+		Tab[0] = $("#nombre0").value;
+	
+		for (i; i < 100; i++)
+			{
+				inumber = "#nombre" + i;
+				ivalue = parseInt($(inumber).val());
+	
+				j = i - 1;
+	
+				while (j >= 0 && Tab[j] > ivalue)
+							{
+								Tab[j+1] = Tab[j];
+								j--;   
+							}
+				Tab[j+1] = ivalue;
+			}
+	
+	
+		$("#sp_resultat_code").html("le tableau dont les index sont classés est : </br>" + Tab);
+	
+	}
+	
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+	$sMessage= "";
+	$Tab = array();
+	$i = 1;
+	$j = 1;
+	$iValue = 0;
+
+	if (isset($_POST["btn_php"]))
+	{
+		
+		$Tab[0] = $_POST["nombre0"];
+
+		for($i; $i < 100; $i++)
+		{
+			$iValue = $_POST["nombre" . $i];
+			$j = $i - 1;
+
+			while ($j >= 0 && $Tab[$j] > $iValue)
+				{
+					$Tab[$j+1] = $Tab[$j];
+					$j--;
+				}
+			$Tab[$j+1] = $iValue;    
+		}
+
+	$sMessage =  $Tab;  
+	}
+
+	require "exo_17.html";
+	
+					</textarea>
+					
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					
+					
+					<form action="exo_17.php" method="POST" name="formPHP">
+						<p>Appuyez sur le bouton pour générer 100 valeurs qui seront en suite classées dans un tableau.</p>
+						<!-- <p><input type="number" name="iUserNumber" id="iUserNumber" value=""></p> -->
+						<p>
+							<button class="btn_grey" onClick="generate_consecutive_exo_17(); return false;">Générer les valeurs</button>
+						</p>
+						
+
+						
+						<div id="input"> </div>
+						<!-- <div id="iUserNumber"> </div> -->
+						<!-- <div id="Payement"> </div> -->
+						
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_6_17_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_6_17_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span>
+						<?php
+						echo '<pre>';
+						print_r($sMessage);
+						echo '</pre>' 
+						?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>
