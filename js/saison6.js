@@ -701,4 +701,114 @@ function Exo_6_15_jsform()
 
     }
 
+function generate_consecutive_exo_16()
+{
+
+    let page = "", i = 1, iUserNumber;
+
+    iUserNumber = parseInt(document.getElementById("iUserNumber").value);
+
+    page = "<p>" + '<input type ="hidden" name="nombre' + 0 + '"id="nombre' + 0 + '" value="' + iUserNumber + '"></p>';
+
+    for (i; i < 100; i++) {
+        
+        page += "<p>" + '<input type ="hidden" name="nombre' + i + '"id="nombre' + i + '" value="' + (iUserNumber + i) + '"></p>';
+    }
+
+    document.getElementById("input").innerHTML = page;
+
     
+}
+
+function generate_random_exo_16()
+{
+    let page = "", i = 1, iUserNumber;
+
+    iUserNumber = parseInt(document.getElementById("iUserNumber").value);
+
+    page = "<p>" + '<input type ="hidden" name="nombre' + 0 + '"id="nombre' + 0 + '" value="' + iUserNumber + '"></p>';
+
+    for (i; i < 100; i++) {
+        
+        page += "<p>" + '<input type ="hidden" name="nombre' + i + '"id="nombre' + i + '" value="' + Math.floor(Math.random() * 100) + '"></p>';
+    }
+
+    document.getElementById("input").innerHTML = page;
+
+
+}
+
+function Exo_6_16_jsform()
+{
+    var k=1, j=1, Tab16 = [], bVar = "", iValue = "";
+
+    Tab16[0] = parseInt(document.getElementById("iUserNumber").value);
+
+    for (k; k < 100; k++)
+        {
+            iValue = "nombre" + k;
+         
+            Tab16[k] = parseInt(document.getElementById(iValue).value);
+          
+        }
+
+    for (j; j < 100; j++)
+        {           
+            if ((Tab16[j]) == (Tab16[j-1]+1))
+                {
+                    bVar = true;
+                }
+            else
+                {
+                    bVar = false;
+                    break
+                }
+        }
+
+    if (bVar == true)
+        {
+            document.getElementById("sp_resultat_code").innerHTML = "Les valeurs du tableau sont consécutives" + Tab16;
+        } 
+    else
+        { 
+            document.getElementById("sp_resultat_code").innerHTML = "Les valeurs du tableau ne sont pas consécutives" + Tab16;
+        }
+}
+
+
+function Exo_6_16_jquery()
+{
+    var k=1, j=1, Tab16 = [], bVar = "", iValue = "";
+
+    Tab16[0] = parseInt($("#iUserNumber").val());
+
+    for (k; k < 100; k++)
+        {
+            iValue = "#nombre" + k;
+         
+            Tab16[k] = parseInt($(iValue).val());
+          
+        }
+
+    for (j; j < 100; j++)
+        {           
+            if ((Tab16[j]) == (Tab16[j-1]+1))
+                {
+                    bVar = true;
+                }
+            else
+                {
+                    bVar = false;
+                    break
+                }
+        }
+
+    if (bVar == true)
+        {
+            $("#sp_resultat_code").html("Les valeurs du tableau sont consécutives" + Tab16);
+        } 
+    else
+        { 
+            $("#sp_resultat_code").html("Les valeurs du tableau ne sont pas consécutives" + Tab16);
+        }
+}
