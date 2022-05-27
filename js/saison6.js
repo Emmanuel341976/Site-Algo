@@ -494,12 +494,12 @@ function Exo_6_12_jquery()
 {
     var iUserNumber=0, Tab = new Array(), i = 0, iValue;    
 
-iUserNumber = document.getElementById("iUserNumber").value;
+iUserNumber = $("#iUserNumber").val();
 
 for (i; i < iUserNumber; i++)
     {
-        iValue = "nombre" + i;
-        Tab[i] = parseInt(document.getElementById(iValue).value)+1;
+        iValue = "#nombre" + i;
+        Tab[i] = parseInt($(iValue).val())+1;
         
     }
 
@@ -661,3 +661,44 @@ for (j; j < iUserNumber; j++)
         }
     $("#sp_resultat_code").html("La moyenne de la classe est : " + rAverage + ".</br>" + iNbSup + " élève(s) ont eut une note supérieure à la moyenne de la classe.");
 }
+
+
+
+function Exo_6_15_jsform()
+    {
+
+        let Tab = new Array(21), i=1;
+
+        iUserNumber = parseInt(document.getElementById("iUserNumber").value);
+
+        Tab[0] = 1000;
+
+        for (i; i < 21; i++)
+            {
+                Tab[i] = Tab[i-1] + Tab[i-1] * 2.75 / 100;
+            }
+
+        document.getElementById("sp_resultat_code").innerHTML = "L'éparge réalisée à " + iUserNumber + " ans est : " + (Tab[iUserNumber]).toFixed(2) + " euros";
+
+    }
+
+
+    function Exo_6_15_jquery()
+    {
+
+        var Tab = new Array(21), i=1;
+
+        iUserNumber = $("#iUserNumber").val();
+
+        Tab[0] = 1000;
+
+        for (i; i < 21; i++)
+            {
+                Tab[i] = Tab[i-1] + Tab[i-1] * 2.75 / 100;
+            }
+
+        $("#sp_resultat_code").html("L'éparge réalisée à " + iUserNumber + " ans est : " + (Tab[iUserNumber]).toFixed(2) + " euros");
+
+    }
+
+    

@@ -130,12 +130,12 @@
 	{
 		var iUserNumber=0, Tab = new Array(), i = 0, iValue;    
 	
-	iUserNumber = document.getElementById("iUserNumber").value;
+	iUserNumber = $("#iUserNumber").val();
 	
 	for (i; i < iUserNumber; i++)
 		{
-			iValue = "nombre" + i;
-			Tab[i] = parseInt(document.getElementById(iValue).value)+1;
+			iValue = "#nombre" + i;
+			Tab[i] = parseInt($(iValue).val())+1;
 			
 		}
 	

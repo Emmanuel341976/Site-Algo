@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Algorithme - Saison 6 - Exo 15</title>
+	<?php include "../commun/head.html" ?>
+	
+	<script src="../js/saison6.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id="page">
+
+        <!--header start -->
+        <header>
+			<?php include "../commun/header.html" ?>
+        </header>
+        <!--header end-->
+		
+
+
+        <!--nav start -->
+        <nav>
+			<?php include "../commun/nav.html" ?>
+        </nav>
+        <!--nav end-->
+
+
+
+        <!--section start -->
+		<section>
+
+
+			<div>
+				<h2>Saison 6 - Exercice 15</h2>
+				<h3>Enoncé</h3>
+				<p class="p_blue">&laquo; Pour sa naissance, la grand-mère de TITI place une somme de 1000 Euros sur son compte épargne rémunéré
+					au taux de 2.75% (chaque année le compte est augmenté de 2.75%). Développer un algorithme permettant
+					de stocker dans un tableau sur 20 ans associant à chaque anniversaire de TITI la somme acquise sur son compte.
+					Puis, la grand-mère de TITI aura la possibilité de saisir un âge (compris entre 1 et 20 ans) et l'algorithme affichera la
+					somme correspondante qu'il y'aura alors sur le compte. &raquo;</p>
+			</div>
+
+
+			<div>
+				<h3>PSEUDO-CODE</h3>
+
+				<textarea class="txt_pseudocode">
+
+	Variables : iUserNumber=0, Tab = new Array(21), i = 1, j=0;
+		
+	Début
+
+	- Boucle pour calculer les intérés de chaque année et les stocker dans le tableau.
+
+		Tab[0] <- 1000
+
+		POUR i <- 21
+			Tab[i] <- Tab[i-1] + Tab[i-1] * 2.75 / 100
+		i SUIVANT
+		
+	- Récupération de l'épargne suivant l'âge.
+
+		Ecrire : "Saissisez l'âge pour connaître l'épargne :"
+		Lire : iUserNumber
+			
+
+	Ecrire  "L'éparge réalisée à " + iUserNumber + " est " + tab[iUserNumber] + " euros"
+
+	Fin
+
+
+
+
+				</textarea>
+
+
+
+
+			</div>
+
+			
+			<div>
+				<p>
+					<button class="btn_green" onClick="showCode('div_jsform', 'btn_jsform')">CODE JavaScript VIA Formulaire</button>
+					<button class="btn_pink" onClick="showCode('div_jquery', 'btn_jquery')">CODE JQuery</button>
+					<button class="btn_black" onClick="showCode('div_php', 'btn_php')">CODE PHP</button>
+				</p>
+				
+				<div id="div_jsform">
+					<textarea class="tarea_green">
+
+	
+	
+					</textarea>
+				</div>
+
+				<div id="div_jquery">
+
+					<textarea class="tarea_pink">
+
+		
+	
+					</textarea>
+				</div>
+
+				<div id="div_php">
+					<textarea class="tarea_black">
+
+	
+	
+					</textarea>
+					
+				</div>
+			</div>
+			
+			<div id="div_form_resultat">
+				<div class="div_formulaire">
+					
+					
+					<form action="exo_15.php" method="POST" name="formPHP">
+						<p>A quel âge souhaitez vous connaitre l'épargne?</p>
+						<p><input type="number" name="iUserNumber" id="iUserNumber" value=""></p>
+						<!-- <p>
+							<button class="btn_grey" onClick="generate_field_exo_15(); return false;">Valider.</button>
+						</p> -->
+						<!-- <div id="input"> </div> -->
+						<div id="iUserNumber"> </div>
+						<!-- <div id="Payement"> </div> -->
+						
+						<p>
+							<button class="btn_green" id="btn_jsform" onClick="Exo_6_15_jsform(); return false;">EXEC JavaScript VIA Formulaire</button>
+							<button class="btn_pink" id="btn_jquery" onClick="Exo_6_15_jquery(); return false;">EXEC JQuery</button>
+							<button class="btn_black" name="btn_php" id="btn_php" >EXEC PHP</button>
+						</p>
+					</form>
+				</div>
+				<div class="div_resultat">
+					<p>Ici mon résultat</p>
+					<span id="sp_resultat_code">
+						
+					</span>
+					<span>
+						<?php
+						echo $sMessage
+						?>
+				</div>
+			</div>
+		</section>		
+        <!--section end-->
+
+        <!--footer start-->
+        <footer>
+			<?php include "../commun/footer.html" ?>
+        </footer>
+        <!--footer end-->
+    </div>
+
+</body>
+
+</html>
